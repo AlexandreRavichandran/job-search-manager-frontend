@@ -1,0 +1,39 @@
+.application__item {
+    border: 1px solid rgb(212, 212, 212);
+
+    .item__header {
+        .header__favorite__button {
+            &:hover {
+                color: red;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .item__title {
+        font-size: 20px;
+    }
+
+    .item__footer {
+        font-size: 20px;
+        border: 1px solid rgb(207, 207, 207);
+    }
+
+    .item__options {
+        border-right: 1px solid rgb(207, 207, 207);
+
+        &:hover {
+            background-color: rgb(231, 231, 231);
+            cursor: pointer;
+        }
+    }
+
+    .item__apply {
+
+        &:hover {
+            background-color: rgb(231, 231, 231);
+            cursor: pointer;
+        }
+    }
+
+}

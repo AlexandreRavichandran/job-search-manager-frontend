@@ -14,21 +14,12 @@ export class DashboardCardSectionComponent implements OnInit {
   @Input() status!: string;
   color: string = 'yellow';
   numberOfApplications!: number;
-  applications: Application[] = [];
 
-  constructor(private applicationService: ApplicationService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    //this.getApplications();
+    
   }
-
-  getApplications(): void {
-    this.applicationService.browseByStatus(this.status).subscribe(applications => {
-      this.numberOfApplications = applications.length;
-      this.applications = applications;
-    })
-  }
-
   getClassByStatus(): string {
     let relatedClass: string = "";
 
@@ -49,5 +40,4 @@ export class DashboardCardSectionComponent implements OnInit {
 
     return relatedClass;
   }
-
 }

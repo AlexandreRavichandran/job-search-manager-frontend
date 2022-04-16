@@ -12,6 +12,8 @@ import { DashboardActivitySectionComponent } from './dashboard-activity-section/
 import { DashboardActivityListComponent } from './dashboard-activity-list/dashboard-activity-list.component';
 import { DashboardActivityItemComponent } from './dashboard-activity-item/dashboard-activity-item.component';
 import { DashboardFooterComponent } from './dashboard-footer/dashboard-footer.component';
+import { DashboardApplicationListComponent } from './dashboard-application-list/dashboard-application-list.component';
+import { DashboardApplicationItemComponent } from './dashboard-application-item/dashboard-application-item.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { DashboardFooterComponent } from './dashboard-footer/dashboard-footer.co
     DashboardActivityListComponent,
     DashboardActivityItemComponent,
     DashboardFooterComponent,
+    DashboardApplicationListComponent,
+    DashboardApplicationItemComponent,
   ],
   imports: [
     CommonModule,
