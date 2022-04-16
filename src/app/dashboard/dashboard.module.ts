@@ -8,6 +8,9 @@ import { DashboardSubHeaderComponent } from './dashboard-sub-header/dashboard-su
 import { DashboardCardSectionComponent } from './dashboard-card-section/dashboard-card-section.component';
 import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
 import { ApplicationStatusConstant } from './application/application-status-constant';
+import { DashboardActivitySectionComponent } from './dashboard-activity-section/dashboard-activity-section.component';
+import { DashboardActivityListComponent } from './dashboard-activity-list/dashboard-activity-list.component';
+import { DashboardActivityItemComponent } from './dashboard-activity-item/dashboard-activity-item.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,9 @@ import { ApplicationStatusConstant } from './application/application-status-cons
     DashboardSubHeaderComponent,
     DashboardCardSectionComponent,
     DashboardHomeComponent,
+    DashboardActivitySectionComponent,
+    DashboardActivityListComponent,
+    DashboardActivityItemComponent,
   ],
   imports: [
     CommonModule,

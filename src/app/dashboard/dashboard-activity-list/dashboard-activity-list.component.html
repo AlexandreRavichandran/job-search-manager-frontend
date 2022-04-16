@@ -1,0 +1,4 @@
+<jsm-dashboard-activity-item *ngFor="let activity of activityList" [activity]="activity"></jsm-dashboard-activity-item>
+<div class="d-flex justify-content-end">
+    <p (click)="this.generateActivities()" class="show__more__button"><i class="bi bi-chevron-down me-2"></i>Show more</p>
+</div>

@@ -13,6 +13,10 @@ export class ActivityService extends AbstractService {
     super();
   }
 
+  browse(): Observable<Activity[]> {
+    return this.http.get<Activity[]>(`${this.apiUrl}/activities`)
+  }
+  
   getByApplicationId(applicationId: number): Observable<Activity[]> {
     return this.http.get<Activity[]>(`${this.apiUrl}/${applicationId}/activities`);
   }
@@ -28,5 +32,5 @@ export class ActivityService extends AbstractService {
   delete(applicationId: number, activityId: number): Observable<Activity> {
     return this.http.delete<Activity>(`${this.apiUrl}/${applicationId}/activities/${activityId}`)
   }
-  
+
 }
