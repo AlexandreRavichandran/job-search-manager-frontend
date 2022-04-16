@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AbstractService } from 'src/app/shared/abstract-service.service';
 import { Application } from './application';
+import { ApplicationStatusConstant } from './application-status-constant';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class ApplicationService extends AbstractService {
     super();
   }
 
-  browse(status: string): Observable<Application[]> {
+  browseByStatus(status: string): Observable<Application[]> {
     return this.http.get<Application[]>(`${this.apiUrl}/applications`);
   }
 

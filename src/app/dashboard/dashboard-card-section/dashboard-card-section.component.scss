@@ -1,0 +1,37 @@
+.application__section {
+    border: 1px solid rgb(178, 178, 178);
+    border-radius: 5px;
+
+    .application__add__button {
+        border: 1px dashed rgb(124, 124, 124);
+        padding: 15px;
+        margin: 20px;
+
+        .button__label {
+            color: rgb(124, 124, 124);
+        }
+
+        &:hover {
+            background-color: rgb(220, 220, 220);
+            cursor: pointer;
+        }
+    }
+
+    &.section__going__to__apply {
+        border-top: 3px solid orange;
+    }
+
+    &.section__applied {
+        border-top: 3px solid red;
+    }
+
+    &.section__relaunch {
+        border-top: 3px solid cyan;
+    }
+
+    &.section__have__a__meeting {
+        border-top: 3px solid green;
+    }
+
+
+}
