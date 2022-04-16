@@ -11,6 +11,7 @@ import { ApplicationStatusConstant } from './application/application-status-cons
 import { DashboardActivitySectionComponent } from './dashboard-activity-section/dashboard-activity-section.component';
 import { DashboardActivityListComponent } from './dashboard-activity-list/dashboard-activity-list.component';
 import { DashboardActivityItemComponent } from './dashboard-activity-item/dashboard-activity-item.component';
+import { DashboardFooterComponent } from './dashboard-footer/dashboard-footer.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { DashboardActivityItemComponent } from './dashboard-activity-item/dashbo
     DashboardActivitySectionComponent,
     DashboardActivityListComponent,
     DashboardActivityItemComponent,
+    DashboardFooterComponent,
   ],
   imports: [
     CommonModule,

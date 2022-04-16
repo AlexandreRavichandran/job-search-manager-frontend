@@ -19,7 +19,7 @@ export class DashboardCardSectionComponent implements OnInit {
   constructor(private applicationService: ApplicationService) { }
 
   ngOnInit(): void {
-    this.getApplications();
+    //this.getApplications();
   }
 
   getApplications(): void {
