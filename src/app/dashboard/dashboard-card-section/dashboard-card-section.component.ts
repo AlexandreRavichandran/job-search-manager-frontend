@@ -1,21 +1,37 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Application } from '../application/application';
+import { ApplicationService } from '../application/application.service';
+import { AbstractDashboardCardSectionComponent } from './abstract-dashboard-card-section.component';
+
 @Component({
   selector: 'jsm-dashboard-card-section',
   templateUrl: './dashboard-card-section.component.html',
   styleUrls: ['./dashboard-card-section.component.scss']
 })
-export class DashboardCardSectionComponent implements OnInit {
+export class DashboardCardSectionComponent extends AbstractDashboardCardSectionComponent implements OnInit {
 
+  applicationList: Application[] = [];
   @Input() name: string = "";
   @Input() status!: string;
   color: string = 'yellow';
   numberOfApplications!: number;
 
-  constructor() { }
+  constructor(private applicationService: ApplicationService) {
+    super();
+  }
 
   ngOnInit(): void {
-
+    this.getApplications();
   }
+
+  getApplications(): void {
+    this.applicationService.browseByStatus(this.status).subscribe(applications => {
+      this.applicationList = applications;
+      this.numberOfApplications = applications.length;
+      console.log(this.applicationList);
+    })
+  }
+
   getClassByStatus(): string {
     let relatedClass: string = "";
 
