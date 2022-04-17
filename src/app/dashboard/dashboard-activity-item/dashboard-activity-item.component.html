@@ -1,11 +1,11 @@
 <div class="activity__item row mb-4 p-2">
     <div class="col-4">
-        
+
     </div>
     <div class="col-4">
-        <p>{{activity.status}}</p>
+        <p class="mb-0">{{activity.status}}</p>
     </div>
-    <div class="col-4">
-        <p class="activity__date">{{activity.date}}</p>
+    <div class="col-4 d-flex justify-content-end">
+        <p class="activity__date mb-0">{{activity.changedAt|date:"shortDate"}}</p>
     </div>
 </div>

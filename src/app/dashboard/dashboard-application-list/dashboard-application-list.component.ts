@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Application } from '../application/application';
 import { ApplicationService } from '../application/application.service';
 
@@ -9,6 +9,7 @@ import { ApplicationService } from '../application/application.service';
 })
 export class DashboardApplicationListComponent implements OnInit {
   @Input() status!: string;
+  @Output() numberOfApplicationEvent = new EventEmitter<number>();
   applicationList: Application[] = [];
   constructor(private applicationService: ApplicationService) { }
 
@@ -19,10 +20,11 @@ export class DashboardApplicationListComponent implements OnInit {
 
   getApplications(): void {
     this.applicationService.browseByStatus(this.status).subscribe(applications => {
-      //this.numberOfApplications = applications.length;
+      this.numberOfApplicationEvent.emit(applications.length);
       this.applicationList = applications;
 
       console.log(this.applicationList);
     })
   }
+
 }

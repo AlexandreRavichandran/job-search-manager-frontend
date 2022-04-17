@@ -1,8 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Application } from '../application/application';
-import { ApplicationStatusConstant } from '../application/application-status-constant';
-import { ApplicationService } from '../application/application.service';
-
 @Component({
   selector: 'jsm-dashboard-card-section',
   templateUrl: './dashboard-card-section.component.html',
@@ -18,7 +14,7 @@ export class DashboardCardSectionComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    
+
   }
   getClassByStatus(): string {
     let relatedClass: string = "";
@@ -39,5 +35,10 @@ export class DashboardCardSectionComponent implements OnInit {
     }
 
     return relatedClass;
+  }
+
+  setNumberOfApplications(numberOfApplication: number): void {
+    this.numberOfApplications = numberOfApplication;
+    console.log(this.numberOfApplications);
   }
 }

@@ -9,84 +9,18 @@ import { ActivityService } from '../activity/activity.service';
 })
 export class DashboardActivityListComponent implements OnInit {
 
-  activityList: Activity[] = [
-    {
-      "id": 1,
-      "status": "yoyo",
-      "result": "toto",
-      "date": new Date
-    },
-    {
-      "id": 1,
-      "status": "yoyo",
-      "result": "toto",
-      "date": new Date
-    },
-    {
-      "id": 1,
-      "status": "yoyo",
-      "result": "toto",
-      "date": new Date
-    },
-    {
-      "id": 1,
-      "status": "yoyo",
-      "result": "toto",
-      "date": new Date
-    },
-    {
-      "id": 1,
-      "status": "yoyo",
-      "result": "toto",
-      "date": new Date
-    },
-    {
-      "id": 1,
-      "status": "yoyo",
-      "result": "toto",
-      "date": new Date
-    },
-    {
-      "id": 1,
-      "status": "yoyo",
-      "result": "toto",
-      "date": new Date
-    },
-    {
-      "id": 1,
-      "status": "yoyo",
-      "result": "toto",
-      "date": new Date
-    },
-    {
-      "id": 1,
-      "status": "yoyo",
-      "result": "toto",
-      "date": new Date
-    },
-    {
-      "id": 1,
-      "status": "yoyo",
-      "result": "toto",
-      "date": new Date
-    },
-    {
-      "id": 1,
-      "status": "yoyo",
-      "result": "toto",
-      "date": new Date
-    },
-  ];
+  activityList: Activity[] = [];
 
   constructor(private activityService: ActivityService) { }
 
   ngOnInit(): void {
-    //this.getActivities();
+    this.getActivities();
   }
 
   private getActivities(): void {
     this.activityService.browse().subscribe(activities => {
       this.activityList = activities;
+      console.log(this.activityList);
     })
   }
 

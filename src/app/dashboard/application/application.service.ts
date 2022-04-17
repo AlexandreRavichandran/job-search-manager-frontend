@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AbstractService } from 'src/app/shared/abstract-service.service';
 import { Application } from './application';
-import { ApplicationStatusConstant } from './application-status-constant';
 
 @Injectable({
   providedIn: 'root'
