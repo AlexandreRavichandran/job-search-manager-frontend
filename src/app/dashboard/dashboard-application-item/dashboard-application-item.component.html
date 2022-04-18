@@ -1,12 +1,12 @@
 <div class="application__item p-3 mb-3">
     <div class="item__header d-flex justify-content-between">
-        <p>Message to display</p>
-        <i class="header__favorite__button bi bi-star "></i>
+        <app-dashboard-application-item-message *ngIf="this.moved"></app-dashboard-application-item-message>
+        <span class="header__favorite__button bi bi-star "></span>
     </div>
     <p class="item__title">{{application.title}}</p>
     <div class="row item__footer d-flex justify-content-center text-center mt-5">
         <div class="item__options col-6 d-flex justify-content-center align-items-center">
-            <i class="bi bi-three-dots"></i>
+            <span class="bi bi-three-dots"></span>
         </div>
         <div class="item__apply col-6 ">
             <p class="text-center apply__label my-2">APPLY</p>

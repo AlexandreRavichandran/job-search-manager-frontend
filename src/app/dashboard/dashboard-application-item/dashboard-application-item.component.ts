@@ -9,7 +9,7 @@ import { Application } from '../application/application';
 export class DashboardApplicationItemComponent implements OnInit {
 
   @Input() application!: Application
-  
+  moved:boolean = false;
   constructor() { }
 
   ngOnInit(): void {

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ApplicationStatusConstant } from '../application/application-status-constant';
-import { CdkDropListGroup } from '@angular/cdk/drag-drop';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',

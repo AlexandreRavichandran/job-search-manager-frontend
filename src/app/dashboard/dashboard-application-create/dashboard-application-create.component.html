@@ -26,6 +26,9 @@
 
                                 </mat-radio-button>
                             </div>
+                            <div>
+                                <h4 class="form__title">Import an application with link</h4>
+                            </div>
                             <mat-form-field class="form__field application__link" appearance="fill">
                                 <mat-label>Link of the application</mat-label>
                                 <input matInput placeholder="Paste here the link of the application"
@@ -35,16 +38,20 @@
                         <div [class.selected]="this.selectedForm === 'manual'" class="filling__type manual__filling"
                             (click)="this.setSelectedForm(formtypeConstant.TYPE_MANUAL_FILLING)">
                             <div class="d-flex justify-content-end">
-                                <mat-radio-button [checked]="this.selectedForm === 'manual'" class="example-radio-button">
+                                <mat-radio-button [checked]="this.selectedForm === 'manual'"
+                                    class="example-radio-button">
 
                                 </mat-radio-button>
+                            </div>
+                            <div>
+                                <h4 class="form__title">Create an application manually</h4>
                             </div>
                             <mat-form-field class="form__field application__name" appearance="fill">
                                 <mat-label>Name of the application</mat-label>
                                 <input matInput placeholder="Ex. Application consultant" formControlName="title">
                             </mat-form-field>
                         </div>
-                        <div>
+                        <div class="d-flex justify-content-end">
                             <button mat-flat-button color="primary" matStepperNext>Next</button>
                         </div>
                     </form>
@@ -62,7 +69,7 @@
                         <div>
                             <mat-form-field class="form__field" appearance="fill">
                                 <mat-label>Description</mat-label>
-                                <input matInput formControlName="description" placeholder="Ex. 1 Main St, New York, NY">
+                                <textarea matInput formControlName="description" placeholder="Ex. 1 Main St, New York, NY"></textarea>
                             </mat-form-field>
                         </div>
 
@@ -104,9 +111,9 @@
                             </mat-form-field>
                         </div>
 
-                        <div>
+                        <div class="d-flex justify-content-end">
                             <button mat-flat-button color="primary" matStepperPrevious>Back</button>
-                            <button class="ms-3" mat-flat-button color="primary" matStepperNext>Next</button>
+                            <button class="ms-3" mat-flat-button color="primary" matStepperNext>Create</button>
                         </div>
                     </form>
                 </mat-step>

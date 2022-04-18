@@ -28,7 +28,6 @@ export class DashboardCardSectionComponent extends AbstractDashboardCardSectionC
     this.applicationService.browseByStatus(this.status).subscribe(applications => {
       this.applicationList = applications;
       this.numberOfApplications = applications.length;
-      console.log(this.applicationList);
     })
   }
 
@@ -42,7 +41,7 @@ export class DashboardCardSectionComponent extends AbstractDashboardCardSectionC
       case "Applied":
         relatedClass = "section__applied"
         break;
-      case "Relaunch":
+      case "Relaunched":
         relatedClass = "section__relaunch"
         break;
       case "Have a meeting":
@@ -55,6 +54,5 @@ export class DashboardCardSectionComponent extends AbstractDashboardCardSectionC
 
   setNumberOfApplications(numberOfApplication: number): void {
     this.numberOfApplications = numberOfApplication;
-    console.log(this.numberOfApplications);
   }
 }

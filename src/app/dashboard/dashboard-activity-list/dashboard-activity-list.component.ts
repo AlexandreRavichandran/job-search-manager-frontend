@@ -20,7 +20,6 @@ export class DashboardActivityListComponent implements OnInit {
   private getActivities(): void {
     this.activityService.browse().subscribe(activities => {
       this.activityList = activities;
-      console.log(this.activityList);
     })
   }
 

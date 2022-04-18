@@ -66,14 +66,12 @@ export class DashboardApplicationCreateComponent implements OnInit {
   }
 
   onSecondStepSubmit(): void {
-    this.applicationService.add(this.application).subscribe(() => {
+    // this.applicationService.add(this.application).subscribe(() => {
       this.router.navigateByUrl("/dashboard");
-    })
-    console.log(this.applicationCreateSecondStepForm.value);
+    // })
   }
 
   setSelectedForm(type: string): void {
     this.selectedForm = type;
-    console.log(this.selectedForm);
   }
 }

@@ -1,0 +1,20 @@
+.item__badge {
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    color:black;
+    &.going__to__apply {
+        background-color: rgb(240, 240, 129);
+        color: orange;
+    }
+
+    &.applied {
+        background-color: rgb(238, 135, 135);
+        color: red;
+    }
+
+    &.relaunched {
+        background-color: rgb(146, 146, 224);
+        color: blue;
+    }
+}

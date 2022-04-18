@@ -22,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { FormTypeConstant } from './dashboard-application-create/form-type-constant';
 import {MatRadioModule, MAT_RADIO_DEFAULT_OPTIONS} from '@angular/material/radio';
+import { DashboardApplicationItemMessageComponent } from './dashboard-application-item-message/dashboard-application-item-message.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {MatRadioModule, MAT_RADIO_DEFAULT_OPTIONS} from '@angular/material/radio
     DashboardFooterComponent,
     DashboardApplicationItemComponent,
     DashboardApplicationCreateComponent,
+    DashboardApplicationItemMessageComponent,
   ],
   imports: [
     CommonModule,

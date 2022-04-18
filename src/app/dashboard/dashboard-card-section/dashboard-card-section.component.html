@@ -3,7 +3,7 @@
     <h5 class="ms-2 ps-3 pt-3 section__name">{{this.name}} ({{this.numberOfApplications}})</h5>
 
     <div class="application__add__button" [routerLink]="['new']">
-        <p class="mb-0 text-center button__label"><i class="bi bi-plus-lg"></i> Add an application</p>
+        <p class="mb-0 text-center button__label"><span class="bi bi-plus-lg"></span> Add an application</p>
     </div>
     <div class="application__list">
         <jsm-dashboard-application-item cdkDrag *ngFor="let application of applicationList" [application]="application">
