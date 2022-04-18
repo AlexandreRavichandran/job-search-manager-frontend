@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
@@ -14,6 +14,14 @@ import { DashboardActivityItemComponent } from './dashboard-activity-item/dashbo
 import { DashboardFooterComponent } from './dashboard-footer/dashboard-footer.component';
 import { DashboardApplicationItemComponent } from './dashboard-application-item/dashboard-application-item.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { DashboardApplicationCreateComponent } from './dashboard-application-create/dashboard-application-create.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatStepperModule} from '@angular/material/stepper';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { FormTypeConstant } from './dashboard-application-create/form-type-constant';
+import {MatRadioModule, MAT_RADIO_DEFAULT_OPTIONS} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -27,15 +35,30 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     DashboardActivityItemComponent,
     DashboardFooterComponent,
     DashboardApplicationItemComponent,
+    DashboardApplicationCreateComponent,
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
+    MatFormFieldModule,
     HttpClientModule,
-    DragDropModule
+    DragDropModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatRadioModule
+
   ],
   providers: [
-    ApplicationStatusConstant
-  ]
+    ApplicationStatusConstant,
+    FormTypeConstant,
+    {
+      provide: MAT_RADIO_DEFAULT_OPTIONS,
+      useValue: { color: 'primary' },
+    }
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class DashboardModule { }

@@ -1,0 +1,32 @@
+.first__step__form {
+    
+    .form__field {
+        width:100%;
+    }
+
+    .filling__type {
+        border:2px solid black;
+        padding:30px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        cursor: pointer;
+
+        &.auto__filling {
+            margin-bottom: 10px;
+        }
+
+        &.manual__filling {
+            margin-top: 10px;
+        }
+        
+        &.selected {
+            border:2px solid rgb(66, 66, 241);
+        }
+    }
+}
+
+.second__step__form {
+    .form__field {
+        width:100%;
+    }
+}

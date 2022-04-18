@@ -1,0 +1,116 @@
+<jsm-dashboard-header></jsm-dashboard-header>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-8">
+            <h2>Add new application</h2>
+
+            <label for="applicationStatus">Status of the application :</label>
+            <select class="ms-3" name="" id="applicationStatus">
+                <option value="">Option 1</option>
+                <option value="">Option 2</option>
+                <option value="">Option 3</option>
+                <option value="">Option 4</option>
+            </select>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-8">
+            <mat-stepper #stepper [linear]="true">
+                <mat-step [stepControl]="applicationCreateFirstStepForm" label="Import the application">
+                    <form class="first__step__form" [formGroup]="applicationCreateFirstStepForm"
+                        (ngSubmit)="this.onFirstStepSubmit()">
+                        <div [class.selected]="this.selectedForm === 'auto'" class="filling__type auto__filling"
+                            (click)="this.setSelectedForm(formtypeConstant.TYPE_AUTO_FILLING)">
+                            <div class="d-flex justify-content-end">
+                                <mat-radio-button [checked]="this.selectedForm === 'auto'" class="example-radio-button">
+
+                                </mat-radio-button>
+                            </div>
+                            <mat-form-field class="form__field application__link" appearance="fill">
+                                <mat-label>Link of the application</mat-label>
+                                <input matInput placeholder="Paste here the link of the application"
+                                    formControlName="link">
+                            </mat-form-field>
+                        </div>
+                        <div [class.selected]="this.selectedForm === 'manual'" class="filling__type manual__filling"
+                            (click)="this.setSelectedForm(formtypeConstant.TYPE_MANUAL_FILLING)">
+                            <div class="d-flex justify-content-end">
+                                <mat-radio-button [checked]="this.selectedForm === 'manual'" class="example-radio-button">
+
+                                </mat-radio-button>
+                            </div>
+                            <mat-form-field class="form__field application__name" appearance="fill">
+                                <mat-label>Name of the application</mat-label>
+                                <input matInput placeholder="Ex. Application consultant" formControlName="title">
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <button mat-flat-button color="primary" matStepperNext>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="applicationCreateSecondStepForm" label="Add more details to the application">
+                    <form class="second__step__form" [formGroup]="applicationCreateSecondStepForm"
+                        (ngSubmit)="this.onSecondStepSubmit()">
+                        <div>
+                            <mat-form-field class="form__field" appearance="fill">
+                                <mat-label>Title</mat-label>
+                                <input matInput formControlName="title" value="{{this.application.title}}"
+                                    placeholder="Ex. 1 Main St, New York, NY">
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field class="form__field" appearance="fill">
+                                <mat-label>Description</mat-label>
+                                <input matInput formControlName="description" placeholder="Ex. 1 Main St, New York, NY">
+                            </mat-form-field>
+                        </div>
+
+                        <div>
+                            <mat-form-field class="form__field" appearance="fill">
+                                <mat-label>Company name</mat-label>
+                                <input matInput formControlName="companyName" placeholder="Ex. 1 Main St, New York, NY">
+                            </mat-form-field>
+                        </div>
+
+                        <div>
+                            <mat-form-field class="form__field" appearance="fill">
+                                <mat-label>Company address</mat-label>
+                                <input matInput formControlName="companyAdress"
+                                    placeholder="Ex. 1 Main St, New York, NY">
+                            </mat-form-field>
+                        </div>
+
+                        <div>
+                            <mat-form-field class="form__field" appearance="fill">
+                                <mat-label>Contact name</mat-label>
+                                <input matInput formControlName="contactName" placeholder="Ex. 1 Main St, New York, NY">
+                            </mat-form-field>
+                        </div>
+
+                        <div>
+                            <mat-form-field class="form__field" appearance="fill">
+                                <mat-label>Contact email</mat-label>
+                                <input matInput formControlName="contactEmail"
+                                    placeholder="Ex. 1 Main St, New York, NY">
+                            </mat-form-field>
+                        </div>
+
+                        <div>
+                            <mat-form-field class="form__field" appearance="fill">
+                                <mat-label>Contact phone number</mat-label>
+                                <input matInput formControlName="contactPhoneNumber"
+                                    placeholder="Ex. 1 Main St, New York, NY">
+                            </mat-form-field>
+                        </div>
+
+                        <div>
+                            <button mat-flat-button color="primary" matStepperPrevious>Back</button>
+                            <button class="ms-3" mat-flat-button color="primary" matStepperNext>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+            </mat-stepper>
+        </div>
+    </div>
+</div>

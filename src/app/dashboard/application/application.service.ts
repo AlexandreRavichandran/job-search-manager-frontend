@@ -32,5 +32,9 @@ export class ApplicationService extends AbstractService {
   delete(applicationId: number): Observable<Application> {
     return this.http.delete<Application>(`${this.apiUrl}/applications/${applicationId}`);
   }
-  
+
+  generateApplicationDataByLink(link: string): Observable<Application> {
+    return this.http.post<Application>(`${this.apiUrl}/applications/importation`, link);
+  }
+
 }
