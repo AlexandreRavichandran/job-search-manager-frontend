@@ -16,8 +16,8 @@ export class DashboardCardSectionComponent extends AbstractDashboardCardSectionC
   color: string = 'yellow';
   numberOfApplications!: number;
 
-  constructor(private applicationService: ApplicationService) {
-    super();
+   constructor( override applicationService:ApplicationService) {
+    super(applicationService)
   }
 
   ngOnInit(): void {
