@@ -16,18 +16,20 @@ export class DashboardCardSectionComponent extends AbstractDashboardCardSectionC
   color: string = 'yellow';
   numberOfApplications!: number;
 
-   constructor( override applicationService:ApplicationService) {
+  constructor(override applicationService: ApplicationService) {
     super(applicationService)
   }
 
   ngOnInit(): void {
     this.getApplications();
+
   }
 
   getApplications(): void {
     this.applicationService.browseByStatus(this.status).subscribe(applications => {
       this.applicationList = applications;
       this.numberOfApplications = applications.length;
+      console.log(this.applicationList);
     })
   }
 

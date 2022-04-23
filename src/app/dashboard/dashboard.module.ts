@@ -23,6 +23,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormTypeConstant } from './dashboard-application-create/form-type-constant';
 import {MatRadioModule, MAT_RADIO_DEFAULT_OPTIONS} from '@angular/material/radio';
 import { DashboardApplicationItemMessageComponent } from './dashboard-application-item-message/dashboard-application-item-message.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,10 @@ import { DashboardApplicationItemMessageComponent } from './dashboard-applicatio
     MatStepperModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatRadioModule
+    MatRadioModule,
+    MatMenuModule,
+    MatDividerModule
+    
 
   ],
   providers: [

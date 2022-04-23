@@ -38,5 +38,19 @@
 .second__step__form {
     .form__field {
         width: 100%;
+        .application__description{
+            min-height: 150px;
+        }
+    }
+}
+
+.import__failed__message{
+    border-radius: 10px;
+    background-color: rgb(175, 35, 35);
+    .message__content{
+        color:white;
+        text-align: center;
+        font-size: 15px;
+        font-weight:500;
     }
 }

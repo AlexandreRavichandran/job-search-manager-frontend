@@ -20,18 +20,17 @@ export class DashboardApplicationItemMessageComponent implements OnInit {
     let classToAdd = "";
 
     switch (this.type) {
-      case "Going to apply":
+      case "going_to_apply":
         classToAdd = "going__to__apply";
         break;
-      case "Applied":
+      case "applied":
         classToAdd = "applied";
         break;
-      case "Relaunch":
+      case "relaunch":
         classToAdd = "relaunched";
         break;
 
     }
-
     return classToAdd;
   }
 
@@ -40,17 +39,18 @@ export class DashboardApplicationItemMessageComponent implements OnInit {
     let label = "";
 
     switch (this.type) {
-      case "Going to apply":
+      case "going_to_apply":
         label = "Created at ";
         break;
-      case "Applied":
+      case "applied":
         label = "Applied at ";
         break;
-      case "Relaunch":
+      case "relaunch":
         label = "Relaunched at ";
         break;
     }
 
+    console.log(this.label);
     this.label = label;
 
   }

@@ -52,31 +52,34 @@
                             </mat-form-field>
                         </div>
                         <div class="d-flex justify-content-end">
-                            <button mat-flat-button color="primary" matStepperNext>Next</button>
+                            <button [disabled]="this.applicationCreateFirstStepForm.status==='INVALID'" mat-flat-button color="primary" matStepperNext>Next</button>
                         </div>
                     </form>
                 </mat-step>
                 <mat-step [stepControl]="applicationCreateSecondStepForm" label="Add more details to the application">
+                    <div *ngIf="this.applicationImportFailed === true" class="p-2 my-3 import__failed__message">
+                        <p class="mb-0 message__content"><span class="bi bi-exclamation-triangle-fill"></span> Import failed. Please complete the form manually.</p>
+                    </div>
                     <form class="second__step__form" [formGroup]="applicationCreateSecondStepForm"
                         (ngSubmit)="this.onSecondStepSubmit()">
                         <div>
                             <mat-form-field class="form__field" appearance="fill">
                                 <mat-label>Title</mat-label>
                                 <input matInput formControlName="title" value="{{this.application.title}}"
-                                    placeholder="Ex. 1 Main St, New York, NY">
+                                    placeholder="A remplir">
                             </mat-form-field>
                         </div>
                         <div>
                             <mat-form-field class="form__field" appearance="fill">
                                 <mat-label>Description</mat-label>
-                                <textarea matInput formControlName="description" placeholder="Ex. 1 Main St, New York, NY"></textarea>
+                                <textarea class="application__description" matInput formControlName="description" [value]="this.application.description" placeholder="A remplir"></textarea>
                             </mat-form-field>
                         </div>
 
                         <div>
                             <mat-form-field class="form__field" appearance="fill">
                                 <mat-label>Company name</mat-label>
-                                <input matInput formControlName="companyName" placeholder="Ex. 1 Main St, New York, NY">
+                                <input matInput formControlName="companyName" value="{{this.application.companyName}}" placeholder="A remplir">
                             </mat-form-field>
                         </div>
 
@@ -84,14 +87,14 @@
                             <mat-form-field class="form__field" appearance="fill">
                                 <mat-label>Company address</mat-label>
                                 <input matInput formControlName="companyAdress"
-                                    placeholder="Ex. 1 Main St, New York, NY">
+                                    placeholder="A remplir">
                             </mat-form-field>
                         </div>
 
                         <div>
                             <mat-form-field class="form__field" appearance="fill">
                                 <mat-label>Contact name</mat-label>
-                                <input matInput formControlName="contactName" placeholder="Ex. 1 Main St, New York, NY">
+                                <input matInput formControlName="contactName" placeholder="A remplir">
                             </mat-form-field>
                         </div>
 
@@ -99,7 +102,7 @@
                             <mat-form-field class="form__field" appearance="fill">
                                 <mat-label>Contact email</mat-label>
                                 <input matInput formControlName="contactEmail"
-                                    placeholder="Ex. 1 Main St, New York, NY">
+                                    placeholder="A remplir">
                             </mat-form-field>
                         </div>
 
@@ -107,12 +110,12 @@
                             <mat-form-field class="form__field" appearance="fill">
                                 <mat-label>Contact phone number</mat-label>
                                 <input matInput formControlName="contactPhoneNumber"
-                                    placeholder="Ex. 1 Main St, New York, NY">
+                                    placeholder="A remplir">
                             </mat-form-field>
                         </div>
 
                         <div class="d-flex justify-content-end">
-                            <button mat-flat-button color="primary" matStepperPrevious>Back</button>
+                            <button mat-flat-button color="primary" (click)="onBackToFirstForm()" matStepperPrevious>Back</button>
                             <button class="ms-3" mat-flat-button color="primary" matStepperNext>Create</button>
                         </div>
                     </form>

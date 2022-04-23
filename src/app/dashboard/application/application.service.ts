@@ -1,13 +1,15 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AbstractService } from 'src/app/shared/abstract-service.service';
 import { Application } from './application';
+import { ApplicationImportation } from './application-importation';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApplicationService extends AbstractService {
+  private headers = new HttpHeaders().set("Content-Type", "application/json");
 
   constructor(private http: HttpClient) {
     super();
@@ -33,8 +35,9 @@ export class ApplicationService extends AbstractService {
     return this.http.delete<Application>(`${this.apiUrl}/applications/${applicationId}`);
   }
 
-  generateApplicationDataByLink(link: string): Observable<Application> {
-    return this.http.post<Application>(`${this.apiUrl}/applications/importation`, link);
+  generateApplicationDataByLink(link: ApplicationImportation): Observable<Application> {
+
+    return this.http.post<Application>(`${this.apiUrl}/applications/importation`, link, { headers: this.headers });
   }
 
 }

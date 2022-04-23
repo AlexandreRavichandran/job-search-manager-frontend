@@ -2,15 +2,15 @@ export interface Application {
 
     id: number;
     title: string;
-    description: string;
+    description?: string;
     status: string;
-    link: string;
+    link?: string;
     archived: boolean;
     result: string;
-    date: Date;
-    companyName: string;
-    companyAdress: string;
-    contactEmail: string;
-    contactPhoneNumber: string;
-
+    createdAt: Date;
+    companyName?: string;
+    companyAdress?: string;
+    contactEmail?: string;
+    contactPhoneNumber?: string;
+    moved: boolean
 }

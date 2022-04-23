@@ -1,14 +1,22 @@
 <div class="application__item p-3 mb-3">
     <div class="item__header d-flex justify-content-between">
-        <app-dashboard-application-item-message *ngIf="this.moved"></app-dashboard-application-item-message>
+        <app-dashboard-application-item-message *ngIf="application.moved" [date]="application.createdAt"
+            [type]="application.status.toLowerCase()"></app-dashboard-application-item-message>
         <span class="header__favorite__button bi bi-star "></span>
     </div>
     <p class="item__title">{{application.title}}</p>
     <div class="row item__footer d-flex justify-content-center text-center mt-5">
-        <div class="item__options col-6 d-flex justify-content-center align-items-center">
+        <div [matMenuTriggerFor]="application__menu" class="item__options col-6 d-flex justify-content-center align-items-center">
             <span class="bi bi-three-dots"></span>
+            <mat-menu #application__menu="matMenu">
+                <button mat-menu-item>See or update the application</button>
+                <button mat-menu-item>Move the application</button>
+                <button mat-menu-item>Application accepted</button>
+                <button mat-menu-item>Application refused</button>
+                <button mat-menu-item>Set this application as archived</button>
+            </mat-menu>
         </div>
-        <div class="item__apply col-6 ">
+        <div *ngIf="application.status.toLowerCase() === 'going_to_apply'" class="item__apply col-6 ">
             <p class="text-center apply__label my-2">APPLY</p>
         </div>
     </div>
