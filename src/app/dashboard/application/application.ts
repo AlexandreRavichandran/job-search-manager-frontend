@@ -1,4 +1,6 @@
 import { Activity } from "../activity/activity";
+import { Discussion } from "../discussion/discussion";
+import { Note } from "../note/note";
 
 export interface Application {
 
@@ -16,4 +18,6 @@ export interface Application {
     contactPhoneNumber?: string;
     moved: boolean;
     activities: Activity[];
+    discussions: Discussion[];
+    notes: Note[];
 }

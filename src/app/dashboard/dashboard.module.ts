@@ -28,6 +28,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import { DashboardApplicationReadComponent } from './dashboard-application-read/dashboard-application-read.component';
 import { DashboardApplicationActivityListComponent } from './dashboard-application-activity-list/dashboard-application-activity-list.component';
 import { DashboardApplicationActivityItemComponent } from './dashboard-application-activity-item/dashboard-application-activity-item.component';
+import { DashboardDiscussionListComponent } from './dashboard-discussion-list/dashboard-discussion-list.component';
+import { DashboardDiscussionItemComponent } from './dashboard-discussion-item/dashboard-discussion-item.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { DashboardApplicationActivityItemComponent } from './dashboard-applicati
     DashboardApplicationReadComponent,
     DashboardApplicationActivityListComponent,
     DashboardApplicationActivityItemComponent,
+    DashboardDiscussionListComponent,
+    DashboardDiscussionItemComponent,
   ],
   imports: [
     CommonModule,

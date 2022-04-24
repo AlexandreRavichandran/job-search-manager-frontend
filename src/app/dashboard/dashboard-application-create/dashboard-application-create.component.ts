@@ -29,7 +29,9 @@ export class DashboardApplicationCreateComponent implements OnInit {
     contactEmail: "",
     contactPhoneNumber: "",
     moved: false,
-    activities: []
+    activities: [],
+    discussions: [],
+    notes: [],
   };
 
   selectedForm: string = this.formtypeConstant.TYPE_AUTO_FILLING;
