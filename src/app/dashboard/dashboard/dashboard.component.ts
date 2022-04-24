@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApplicationStatusConstant } from '../application/application-status-constant';
 @Component({
-  selector: 'app-dashboard',
+  selector: 'jsm-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })

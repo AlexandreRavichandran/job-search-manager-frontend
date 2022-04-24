@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-dashboard-application-item-message',
+  selector: 'jsm-dashboard-application-item-message',
   templateUrl: './dashboard-application-item-message.component.html',
   styleUrls: ['./dashboard-application-item-message.component.scss']
 })

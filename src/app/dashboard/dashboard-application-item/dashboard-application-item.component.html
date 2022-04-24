@@ -1,7 +1,8 @@
-<div class="archived application__item p-3 mb-3">
+<div [routerLink]="['applications',application.id]" [class.archived]="application.archived"
+    class="application__item p-3 mb-3 ">
     <div class="item__header d-flex justify-content-between">
-        <app-dashboard-application-item-message *ngIf="application.moved" [date]="application.createdAt"
-            [type]="application.status.toLowerCase()"></app-dashboard-application-item-message>
+        <jsm-dashboard-application-item-message *ngIf="application.moved" [date]="application.createdAt"
+            [type]="application.status.toLowerCase()"></jsm-dashboard-application-item-message>
         <span class="header__favorite__button bi bi-star "></span>
     </div>
     <p class="item__title">{{application.title}}</p>
@@ -11,7 +12,8 @@
         </div>
     </div>
     <div class="row item__footer d-flex justify-content-center text-center mt-5">
-        <div [matMenuTriggerFor]="application__menu" class="item__options col-6 d-flex justify-content-center align-items-center">
+        <div [matMenuTriggerFor]="application__menu"
+            class="item__options col-6 d-flex justify-content-center align-items-center">
             <span class="bi bi-three-dots"></span>
             <mat-menu #application__menu="matMenu">
                 <button mat-menu-item>See or update the application</button>
@@ -26,5 +28,3 @@
         </div>
     </div>
 </div>
-
-//TODO Faire la page read application avec tous les elements

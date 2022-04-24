@@ -1,3 +1,5 @@
+import { Activity } from "../activity/activity";
+
 export interface Application {
 
     id: number;
@@ -12,5 +14,6 @@ export interface Application {
     companyAdress?: string;
     contactEmail?: string;
     contactPhoneNumber?: string;
-    moved: boolean
+    moved: boolean;
+    activities: Activity[];
 }

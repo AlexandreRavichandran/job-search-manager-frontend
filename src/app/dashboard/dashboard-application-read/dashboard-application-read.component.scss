@@ -1,0 +1,35 @@
+.application {
+
+    .application__header {
+        .application__edit {
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgb(212, 212, 212);
+            }
+        }
+    }
+
+    .result {
+        padding: 10px;
+        border-radius: 10px;
+
+        .result__icon {
+            font-size: 30px;
+        }
+
+        .result__label {
+            font-size: 20px;
+        }
+
+        cursor:pointer;
+
+        &:hover {
+            background-color: rgb(212, 212, 212);
+        }
+    }
+
+}

@@ -7,7 +7,7 @@ import { ApplicationService } from '../application/application.service';
 import { FormTypeConstant } from './form-type-constant';
 
 @Component({
-  selector: 'app-dashboard-application-create',
+  selector: 'jsm-dashboard-application-create',
   templateUrl: './dashboard-application-create.component.html',
   styleUrls: ['./dashboard-application-create.component.scss']
 })
@@ -28,7 +28,8 @@ export class DashboardApplicationCreateComponent implements OnInit {
     companyAdress: "",
     contactEmail: "",
     contactPhoneNumber: "",
-    moved: false
+    moved: false,
+    activities: []
   };
 
   selectedForm: string = this.formtypeConstant.TYPE_AUTO_FILLING;

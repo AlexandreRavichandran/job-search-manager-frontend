@@ -18,19 +18,19 @@ export class ActivityService extends AbstractService {
   }
   
   getByApplicationId(applicationId: number): Observable<Activity[]> {
-    return this.http.get<Activity[]>(`${this.apiUrl}/${applicationId}/activities`);
+    return this.http.get<Activity[]>(`${this.apiUrl}/applications/${applicationId}/activities`);
   }
 
   read(applicationId: number, activityId: number): Observable<Activity> {
-    return this.http.get<Activity>(`${this.apiUrl}/${applicationId}/activities/${activityId}`)
+    return this.http.get<Activity>(`${this.apiUrl}/applications/${applicationId}/activities/${activityId}`)
   }
 
   add(applicationId: number, activity: Activity): Observable<Activity> {
-    return this.http.post<Activity>(`${this.apiUrl}/${applicationId}/activities`, activity);
+    return this.http.post<Activity>(`${this.apiUrl}/applications/${applicationId}/activities`, activity);
   }
 
   delete(applicationId: number, activityId: number): Observable<Activity> {
-    return this.http.delete<Activity>(`${this.apiUrl}/${applicationId}/activities/${activityId}`)
+    return this.http.delete<Activity>(`${this.apiUrl}/applications/${applicationId}/activities/${activityId}`)
   }
 
 }

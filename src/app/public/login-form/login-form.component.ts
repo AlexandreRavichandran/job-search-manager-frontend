@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/user/auth.service';
 
 @Component({
-  selector: 'app-login-form',
+  selector: 'jsm-login-form',
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss']
 })

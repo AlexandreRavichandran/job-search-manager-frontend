@@ -25,6 +25,9 @@ import {MatRadioModule, MAT_RADIO_DEFAULT_OPTIONS} from '@angular/material/radio
 import { DashboardApplicationItemMessageComponent } from './dashboard-application-item-message/dashboard-application-item-message.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
+import { DashboardApplicationReadComponent } from './dashboard-application-read/dashboard-application-read.component';
+import { DashboardApplicationActivityListComponent } from './dashboard-application-activity-list/dashboard-application-activity-list.component';
+import { DashboardApplicationActivityItemComponent } from './dashboard-application-activity-item/dashboard-application-activity-item.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,9 @@ import {MatDividerModule} from '@angular/material/divider';
     DashboardApplicationItemComponent,
     DashboardApplicationCreateComponent,
     DashboardApplicationItemMessageComponent,
+    DashboardApplicationReadComponent,
+    DashboardApplicationActivityListComponent,
+    DashboardApplicationActivityItemComponent,
   ],
   imports: [
     CommonModule,
