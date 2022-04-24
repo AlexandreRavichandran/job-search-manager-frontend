@@ -2,11 +2,29 @@
     border: 1px solid rgb(212, 212, 212);
     border-radius: 10px;
     cursor: move;
+
     .item__header {
         .header__favorite__button {
             &:hover {
                 color: red;
             }
+        }
+    }
+
+    &.archived {
+        position: relative;
+
+        .win__label {
+            position: absolute;
+            top: 30%;
+            left: 30%;
+            font-size: 20px;
+            color: white;
+            background-color: aqua;
+            font-weight: bold;
+            border-radius: 10px;
+            padding: 10px;
+            transform: rotate(-20deg);
         }
     }
 

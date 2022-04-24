@@ -15,8 +15,9 @@ export class ApplicationService extends AbstractService {
     super();
   }
 
-  browseByStatus(status: string): Observable<Application[]> {
-    return this.http.get<Application[]>(`${this.apiUrl}/applications`);
+  browseByStatusAndArchived(status: string, archived: boolean): Observable<Application[]> {
+    const formattedStatus: string = status.replace(/ /g, "_");
+    return this.http.get<Application[]>(`${this.apiUrl}/applications/status/${formattedStatus}/archived/${archived}`);
   }
 
   read(applicationId: number): Observable<Application> {
@@ -36,7 +37,6 @@ export class ApplicationService extends AbstractService {
   }
 
   generateApplicationDataByLink(link: ApplicationImportation): Observable<Application> {
-
     return this.http.post<Application>(`${this.apiUrl}/applications/importation`, link, { headers: this.headers });
   }
 

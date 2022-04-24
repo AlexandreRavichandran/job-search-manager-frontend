@@ -2,7 +2,7 @@
     [ngClass]="this.getClassByStatus()" class="mx-2 mt-4 p-4 application__section">
     <h5 class="ms-2 ps-3 pt-3 section__name">{{this.name}} ({{this.numberOfApplications}})</h5>
 
-    <div class="application__add__button" [routerLink]="['new']">
+    <div class="application__add__button" (click)="this.createApplication()">
         <p class="mb-0 text-center button__label"><span class="bi bi-plus-lg"></span> Add an application</p>
     </div>
     <div class="application__list">

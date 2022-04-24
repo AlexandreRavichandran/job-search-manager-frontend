@@ -3,14 +3,6 @@
     <div class="row d-flex justify-content-center">
         <div class="col-8">
             <h2>Add new application</h2>
-
-            <label for="applicationStatus">Status of the application :</label>
-            <select class="ms-3" name="" id="applicationStatus">
-                <option value="">Option 1</option>
-                <option value="">Option 2</option>
-                <option value="">Option 3</option>
-                <option value="">Option 4</option>
-            </select>
         </div>
     </div>
     <div class="row d-flex justify-content-center">
@@ -19,6 +11,15 @@
                 <mat-step [stepControl]="applicationCreateFirstStepForm" label="Import the application">
                     <form class="first__step__form" [formGroup]="applicationCreateFirstStepForm"
                         (ngSubmit)="this.onFirstStepSubmit()">
+                        <div class="my-3">
+                            <label for="applicationStatus">Status of the application :</label>
+                            <select formControlName="status" class="ms-3" name="" id="applicationStatus">
+                                <option value="Going to apply">Going to apply</option>
+                                <option value="Applied">Applied</option>
+                                <option value="Relaunched">Relaunched</option>
+                                <option value="Have a meeting">Have a meeting</option>
+                            </select>
+                        </div>
                         <div [class.selected]="this.selectedForm === 'auto'" class="filling__type auto__filling"
                             (click)="this.setSelectedForm(formtypeConstant.TYPE_AUTO_FILLING)">
                             <div class="d-flex justify-content-end">

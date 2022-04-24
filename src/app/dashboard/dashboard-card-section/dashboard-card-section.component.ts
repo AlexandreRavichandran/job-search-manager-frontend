@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Application } from '../application/application';
 import { ApplicationService } from '../application/application.service';
 import { AbstractDashboardCardSectionComponent } from './abstract-dashboard-card-section.component';
@@ -16,7 +17,7 @@ export class DashboardCardSectionComponent extends AbstractDashboardCardSectionC
   color: string = 'yellow';
   numberOfApplications!: number;
 
-  constructor(override applicationService: ApplicationService) {
+  constructor(override applicationService: ApplicationService, private router: Router) {
     super(applicationService)
   }
 
@@ -26,10 +27,9 @@ export class DashboardCardSectionComponent extends AbstractDashboardCardSectionC
   }
 
   getApplications(): void {
-    this.applicationService.browseByStatus(this.status).subscribe(applications => {
+    this.applicationService.browseByStatusAndArchived(this.status, false).subscribe(applications => {
       this.applicationList = applications;
       this.numberOfApplications = applications.length;
-      console.log(this.applicationList);
     })
   }
 
@@ -56,5 +56,9 @@ export class DashboardCardSectionComponent extends AbstractDashboardCardSectionC
 
   setNumberOfApplications(numberOfApplication: number): void {
     this.numberOfApplications = numberOfApplication;
+  }
+
+  createApplication(): void {
+    this.router.navigate(["dashboard/new"], { state: { status: this.status } })
   }
 }

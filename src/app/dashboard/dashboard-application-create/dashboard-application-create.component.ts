@@ -12,13 +12,14 @@ import { FormTypeConstant } from './form-type-constant';
   styleUrls: ['./dashboard-application-create.component.scss']
 })
 export class DashboardApplicationCreateComponent implements OnInit {
+  statusOfCreatedApplication: string | null = "";
   applicationImportFailed: boolean = false;
   application: Application = {
 
     id: 0,
     title: "",
     description: "",
-    status: "",
+    status: "Going to apply",
     link: "",
     archived: false,
     result: "",
@@ -34,7 +35,8 @@ export class DashboardApplicationCreateComponent implements OnInit {
 
   applicationCreateFirstStepForm = new FormGroup({
     link: new FormControl(''),
-    title: new FormControl('')
+    title: new FormControl(''),
+    status: new FormControl(this.statusOfCreatedApplication)
   })
 
   applicationCreateSecondStepForm = new FormGroup({
@@ -51,25 +53,31 @@ export class DashboardApplicationCreateComponent implements OnInit {
   constructor(
     private applicationService: ApplicationService,
     private router: Router,
-    public formtypeConstant: FormTypeConstant) { }
+    public formtypeConstant: FormTypeConstant) {
+    if (this.router.getCurrentNavigation()?.extras === undefined) {
+      this.router.navigate(["/dashboard"]);
+    } else {
+      this.statusOfCreatedApplication = this.router.getCurrentNavigation()?.extras.state!['status'];
+    }
+
+  }
 
   ngOnInit(): void {
+
   }
 
   onFirstStepSubmit(): void {
-    console.log(this.applicationCreateFirstStepForm);
     this.application.title = this.applicationCreateFirstStepForm.value.title;
     if (this.applicationCreateFirstStepForm.valid && this.selectedForm === this.formtypeConstant.TYPE_AUTO_FILLING) {
-      //console.log(`Make import search with ${this.applicationCreateFirstStepForm.value.link}`);
+      console.log(`Make import search with ${this.applicationCreateFirstStepForm.value.link}`);
       const applicationLink: ApplicationImportation = {
         link: this.applicationCreateFirstStepForm.value.link
       }
 
       this.applicationService.generateApplicationDataByLink(applicationLink).subscribe({
         next: application => {
-          console.log(application);
           this.application = application;
-          console.log(this.application.description);
+          this.application.status = this.applicationCreateFirstStepForm.value.status.toUpperCase().replace(/ /g, "_");
         },
         error: error => {
           this.applicationImportFailed = true;
@@ -80,9 +88,10 @@ export class DashboardApplicationCreateComponent implements OnInit {
   }
 
   onSecondStepSubmit(): void {
-    // this.applicationService.add(this.application).subscribe(() => {
-    this.router.navigateByUrl("/dashboard");
-    // })
+    this.application.createdAt = new Date();
+    this.applicationService.add(this.application).subscribe(() => {
+      this.router.navigateByUrl("/dashboard");
+    })
   }
 
   setSelectedForm(type: string): void {

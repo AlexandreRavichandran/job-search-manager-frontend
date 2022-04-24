@@ -3,23 +3,30 @@ import { Application } from '../application/application';
 import { ApplicationService } from '../application/application.service';
 
 export class AbstractDashboardCardSectionComponent {
-
     constructor(public applicationService: ApplicationService) { }
 
     drop(event: CdkDragDrop<Application[]>) {
-
         if (event.previousContainer === event.container) {
             moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
         } else {
-            event.container.data[event.currentIndex] = this.updateMovedApplicationStatus(event.container.id, event.container.data[event.currentIndex]);
-            this.applicationService.edit(event.container.data[event.currentIndex]).subscribe(() => {
                 transferArrayItem(
-                    event.previousContainer.data,
-                    event.container.data,
-                    event.previousIndex,
-                    event.currentIndex,
-                );
-
+                event.previousContainer.data,
+                event.container.data,
+                event.previousIndex,
+                event.currentIndex,
+            );
+            
+            event.container.data[event.currentIndex] = this.updateMovedApplicationStatus(event.container.id, event.container.data[event.currentIndex]);
+            this.applicationService.edit(event.container.data[event.currentIndex]).subscribe({
+                error: () => {
+                    //Rollback if status change failed
+                    transferArrayItem(
+                        event.container.data,
+                        event.previousContainer.data,
+                        event.currentIndex,
+                        event.previousIndex,
+                    );
+                }
             });
         }
     }
@@ -34,10 +41,10 @@ export class AbstractDashboardCardSectionComponent {
                 nextStatus = "APPLIED";
                 break
             case "cdk-drop-list-2":
-                nextStatus = "RELAUNCH";
+                nextStatus = "RELAUNCHED";
                 break
             case "cdk-drop-list-3":
-                nextStatus = "have_a_meeting";
+                nextStatus = "HAVE_A_MEETING";
                 break
         }
         return nextStatus;
@@ -46,6 +53,7 @@ export class AbstractDashboardCardSectionComponent {
     private updateMovedApplicationStatus(nextContainerId: string, movedApplication: Application): Application {
         const nextStatus = this.guessNextStatusByNextContainerId(nextContainerId);
         movedApplication.status = nextStatus;
+        movedApplication.moved = true;
         return movedApplication;
     }
 

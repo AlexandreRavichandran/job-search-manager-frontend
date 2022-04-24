@@ -50,7 +50,6 @@ export class DashboardApplicationItemMessageComponent implements OnInit {
         break;
     }
 
-    console.log(this.label);
     this.label = label;
 
   }
