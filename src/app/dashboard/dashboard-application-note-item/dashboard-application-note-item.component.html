@@ -1,0 +1,19 @@
+<div class="mb-5 note__item">
+    <div class="item__header d-flex justify-content-between">
+        <div>
+            <p>Note</p>
+        </div>
+        <div>
+            <p class="mb-0">{{note.createdAt|date: "shortDate"}}</p>
+        </div>
+    </div>
+    <div>
+        <p>{{note.description}}</p>
+    </div>
+    <div class="d-flex flex-column align-items-end justify-content-between">
+        <div class="action__icons">
+            <span class="icons bi bi-pencil me-2"></span>
+            <span (click)="this.delete()" class="icons bi bi-trash"></span>
+        </div>
+    </div>
+</div>

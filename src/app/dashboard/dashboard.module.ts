@@ -30,6 +30,8 @@ import { DashboardApplicationActivityListComponent } from './dashboard-applicati
 import { DashboardApplicationActivityItemComponent } from './dashboard-application-activity-item/dashboard-application-activity-item.component';
 import { DashboardApplicationDiscussionListComponent } from './dashboard-application-discussion-list/dashboard-application-discussion-list.component';
 import { DashboardApplicationDiscussionItemComponent } from './dashboard-application-discussion-item/dashboard-application-discussion-item.component';
+import { DashboardApplicationNoteListComponent } from './dashboard-application-note-list/dashboard-application-note-list.component';
+import { DashboardApplicationNoteItemComponent } from './dashboard-application-note-item/dashboard-application-note-item.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { DashboardApplicationDiscussionItemComponent } from './dashboard-applica
     DashboardApplicationActivityItemComponent,
     DashboardApplicationDiscussionListComponent,
     DashboardApplicationDiscussionItemComponent,
+    DashboardApplicationNoteListComponent,
+    DashboardApplicationNoteItemComponent,
   ],
   imports: [
     CommonModule,

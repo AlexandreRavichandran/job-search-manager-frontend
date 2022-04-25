@@ -16,7 +16,6 @@ export class DashboardApplicationDiscussionItemComponent implements OnInit {
   constructor(private discussionService: DiscussionService) { }
 
   ngOnInit(): void {
-    console.log(this.discussion);
   }
 
   formatDiscussionType(): string {
