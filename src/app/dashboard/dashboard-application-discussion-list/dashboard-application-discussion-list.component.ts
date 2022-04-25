@@ -3,11 +3,11 @@ import { Application } from '../application/application';
 import { Discussion } from '../discussion/discussion';
 
 @Component({
-  selector: 'jsm-dashboard-discussion-list',
-  templateUrl: './dashboard-discussion-list.component.html',
-  styleUrls: ['./dashboard-discussion-list.component.scss']
+  selector: 'jsm-dashboard-application-discussion-list',
+  templateUrl: './dashboard-application-discussion-list.component.html',
+  styleUrls: ['./dashboard-application-discussion-list.component.scss']
 })
-export class DashboardDiscussionListComponent implements OnInit {
+export class DashboardApplicationDiscussionListComponent implements OnInit {
 
   @Input() application!: Application;
   @Input() discussionList: Discussion[] = [];

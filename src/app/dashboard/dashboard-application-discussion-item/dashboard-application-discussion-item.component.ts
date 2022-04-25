@@ -5,11 +5,11 @@ import { Discussion } from '../discussion/discussion';
 import { DiscussionService } from '../discussion/discussion.service';
 
 @Component({
-  selector: 'jsm-dashboard-discussion-item',
-  templateUrl: './dashboard-discussion-item.component.html',
-  styleUrls: ['./dashboard-discussion-item.component.scss']
+  selector: 'jsm-dashboard-application-discussion-item',
+  templateUrl: './dashboard-application-discussion-item.component.html',
+  styleUrls: ['./dashboard-application-discussion-item.component.scss']
 })
-export class DashboardDiscussionItemComponent implements OnInit {
+export class DashboardApplicationDiscussionItemComponent implements OnInit {
   @Input() application!: Application;
   @Input() discussion!: Discussion;
   @Output() deleteDiscussionEvent: EventEmitter<number> = new EventEmitter<number>();
