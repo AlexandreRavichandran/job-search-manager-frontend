@@ -36,11 +36,13 @@
         <div class="col-3 d-flex flex-column">
             <div>
                 <h1>Activity list</h1>
-                <jsm-dashboard-application-activity-list [application]="application" [activityList]="application.activities"></jsm-dashboard-application-activity-list>
+                <jsm-dashboard-application-activity-list [application]="application"
+                    [activityList]="application.activities"></jsm-dashboard-application-activity-list>
             </div>
             <div>
                 <h1>My discussions</h1>
-                <jsm-dashboard-application-discussion-list [application]="application" [discussionList]="application.discussions"></jsm-dashboard-application-discussion-list>
+                <jsm-dashboard-application-discussion-list [application]="application"
+                    [discussionList]="application.discussions"></jsm-dashboard-application-discussion-list>
             </div>
         </div>
 
@@ -48,17 +50,19 @@
     <div class="row">
         <div class="col-9">
             <h1>My notes</h1>
-            <jsm-dashboard-application-note-list [application]="application" [noteList]="application.notes"></jsm-dashboard-application-note-list>
+            <jsm-dashboard-application-note-list [application]="application" [noteList]="application.notes">
+            </jsm-dashboard-application-note-list>
         </div>
         <div class="col-3">
             <h1>Related files</h1>
         </div>
     </div>
     <div class="application__footer">
-        <a href="">Delete this application</a>
+        <a (click)="this.delete()" href="">Delete this application</a>
 
-        <a class="ms-2" *ngIf="!application.archived" href="">Archive this application</a>
-        <a class="ms-2" *ngIf="application.archived" href="">Restore this application</a>
+        <a (click)="this.toggleArchive()" class="ms-2" *ngIf="!application.archived" href="">Archive this
+            application</a>
+        <a (click)="this.toggleArchive()" class="ms-2" *ngIf="application.archived" href="">Restore this application</a>
     </div>
 
 </div>

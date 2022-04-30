@@ -21,4 +21,12 @@ export class DashboardApplicationReadComponent implements OnInit {
     })
   }
 
+  delete(): void {
+    this.applicationService.delete(this.application.id).subscribe();
+  }
+
+  toggleArchive(): void {
+    this.application.archived = !this.application.archived;
+    this.applicationService.edit(this.application).subscribe();
+  }
 }

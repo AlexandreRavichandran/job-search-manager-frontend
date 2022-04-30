@@ -1,0 +1,14 @@
+<div class="d-flex justify-content-end">
+    <div  (click)="this.toggleWrapper()" *ngIf="this.wrapped" class="toggle__button d-flex">
+        <span class="toggle__button__icon bi bi-chevron-down me-2"></span>
+        <p class="mb-0 toggle__button d-flex align-self-center" *ngIf="this.wrapped">Show
+            more</p>
+    </div>
+    <div (click)="this.toggleWrapper()" *ngIf="!this.wrapped"
+        class="toggle__button d-flex justify-content-center align-items-center">
+        <span class="toggle__button__icon bi bi-chevron-up me-2"></span>
+        <p class="mb-0 toggle__button d-flex align-self-center" *ngIf="!this.wrapped">Show
+            less</p>
+    </div>
+
+</div>

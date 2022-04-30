@@ -53,8 +53,8 @@ export class DashboardApplicationActivityItemComponent implements OnInit {
         return formattedStatus;
     }
 
-    delete(): Subscription {
-        return this.activityService.delete(this.application.id, this.activity.id).subscribe({
+    delete(): void {
+        this.activityService.delete(this.application.id, this.activity.id).subscribe({
             next: activity => {
                 this.deleteActivityEvent.emit(activity.id);
             },

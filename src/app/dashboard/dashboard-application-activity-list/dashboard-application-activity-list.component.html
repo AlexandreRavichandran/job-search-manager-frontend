@@ -1,2 +1,5 @@
-<jsm-dashboard-application-activity-item (deleteActivityEvent)="this.deleteFromList($event)" [application]="application" *ngFor="let activity of activityList"
-    [activity]="activity"></jsm-dashboard-application-activity-item>
+<jsm-dashboard-application-activity-item (deleteActivityEvent)="this.deleteFromList($event)" [application]="application"
+    *ngFor="let activity of displayedActivityList" [activity]="activity"></jsm-dashboard-application-activity-item>
+<jsm-toggle-display *ngIf="this.activityList.length > 2" (wrapperEvent)="this.toggleWrapper($event)">
+
+</jsm-toggle-display>

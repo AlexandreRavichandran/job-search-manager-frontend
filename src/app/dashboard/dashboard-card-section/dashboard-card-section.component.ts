@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Application } from '../application/application';
 import { ApplicationService } from '../application/application.service';
 import { AbstractDashboardCardSectionComponent } from './abstract-dashboard-card-section.component';
@@ -10,6 +10,8 @@ import { AbstractDashboardCardSectionComponent } from './abstract-dashboard-card
   styleUrls: ['./dashboard-card-section.component.scss']
 })
 export class DashboardCardSectionComponent extends AbstractDashboardCardSectionComponent implements OnInit {
+
+  @Output() protected refreshSectionEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   applicationList: Application[] = [];
   @Input() name: string = "";
@@ -54,11 +56,15 @@ export class DashboardCardSectionComponent extends AbstractDashboardCardSectionC
     return relatedClass;
   }
 
-  setNumberOfApplications(numberOfApplication: number): void {
+  private setNumberOfApplications(numberOfApplication: number): void {
     this.numberOfApplications = numberOfApplication;
   }
 
   createApplication(): void {
     this.router.navigate(["dashboard/new"], { state: { status: this.status } })
+  }
+
+  refreshNumberOfApplication(): void {
+    this.refreshSectionEvent.emit(true);
   }
 }

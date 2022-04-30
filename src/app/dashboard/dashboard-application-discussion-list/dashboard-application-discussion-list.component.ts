@@ -9,15 +9,35 @@ import { Discussion } from '../discussion/discussion';
 })
 export class DashboardApplicationDiscussionListComponent implements OnInit {
 
+  wrapped: boolean = true;
+  displayedDiscussionList: Discussion[] = [];
   @Input() application!: Application;
   @Input() discussionList: Discussion[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
+    this.showFew();
   }
 
-  deleteFromList(deletedActivityId: number): void {
-    this.discussionList = this.discussionList.filter(discussion => deletedActivityId !== discussion.id);
+  deleteFromList(deletedDiscussionId: number): void {
+    this.discussionList = this.discussionList.filter(discussion => deletedDiscussionId !== discussion.id);
+    this.displayedDiscussionList = this.displayedDiscussionList.filter(discussion => deletedDiscussionId !== discussion.id)
+  }
+
+  showFew(): void {
+    this.displayedDiscussionList = this.discussionList.slice(0, 2);
+  }
+
+  showAll(): void {
+    this.displayedDiscussionList = this.discussionList;
+  }
+
+  toggleWrapper(event: any) {
+    if (event) {
+      this.showFew();
+    } else {
+      this.showAll();
+    }
   }
 }

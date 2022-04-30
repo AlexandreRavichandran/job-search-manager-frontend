@@ -39,10 +39,10 @@ export class DashboardApplicationDiscussionItemComponent implements OnInit {
     return formattedDiscussionType;
   }
 
-  delete(): Subscription {
-    return this.discussionService.delete(this.application.id, this.discussion.id).subscribe({
-      next: activity => {
-        this.deleteDiscussionEvent.emit(activity.id);
+  delete(): void {
+    this.discussionService.delete(this.application.id, this.discussion.id).subscribe({
+      next: discussion => {
+        this.deleteDiscussionEvent.emit(discussion.id);
       },
       error: error => {
         console.log(error);

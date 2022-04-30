@@ -1,23 +1,30 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Application } from '../application/application';
 import { ApplicationService } from '../application/application.service';
 
-export class AbstractDashboardCardSectionComponent {
+@Injectable()
+export abstract class AbstractDashboardCardSectionComponent {
+
     constructor(public applicationService: ApplicationService) { }
 
     drop(event: CdkDragDrop<Application[]>) {
         if (event.previousContainer === event.container) {
             moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
         } else {
-                transferArrayItem(
+            transferArrayItem(
                 event.previousContainer.data,
                 event.container.data,
                 event.previousIndex,
                 event.currentIndex,
             );
-            
+
             event.container.data[event.currentIndex] = this.updateMovedApplicationStatus(event.container.id, event.container.data[event.currentIndex]);
             this.applicationService.edit(event.container.data[event.currentIndex]).subscribe({
+                next: () => {
+
+                    this.refreshNumberOfApplication();
+                },
                 error: () => {
                     //Rollback if status change failed
                     transferArrayItem(
@@ -57,4 +64,5 @@ export class AbstractDashboardCardSectionComponent {
         return movedApplication;
     }
 
+    protected abstract refreshNumberOfApplication(): void;
 }

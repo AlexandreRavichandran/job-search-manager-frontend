@@ -1,1 +1,6 @@
-<jsm-dashboard-application-discussion-item *ngFor="let discussion of discussionList" (deleteDiscussionEvent)="this.deleteFromList($event)" [application]="application" [discussion]="discussion"></jsm-dashboard-application-discussion-item>
+<jsm-dashboard-application-discussion-item *ngFor="let discussion of displayedDiscussionList"
+    (deleteDiscussionEvent)="this.deleteFromList($event)" [application]="application" [discussion]="discussion">
+</jsm-dashboard-application-discussion-item>
+<jsm-toggle-display *ngIf="this.discussionList.length > 2" (wrapperEvent)="this.toggleWrapper($event)">
+
+</jsm-toggle-display>
