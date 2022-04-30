@@ -6,7 +6,9 @@
                     <mat-form-field class="username__field" appearance="fill">
                         <mat-label>Username</mat-label>
                         <input matInput formControlName="username" id="username" placeholder="username">
-                        <mat-error *ngIf="this.loginForm.controls['username'].touched && this.loginForm.controls['username'].status === 'INVALID'">You have to put the username</mat-error>
+                        <mat-error
+                            *ngIf="this.loginForm.controls['username'].touched && this.loginForm.controls['username'].status === 'INVALID'">
+                            You have to put the username</mat-error>
                     </mat-form-field>
                 </div>
 
@@ -14,14 +16,15 @@
                     <mat-form-field class="password__field" appearance="fill">
                         <mat-label>Password</mat-label>
                         <input type="password" formControlName="password" id="password" matInput placeholder="password">
-                        <mat-error *ngIf="this.loginForm.controls['password'].touched && this.loginForm.controls['password'].status === 'INVALID'">You have to put the password</mat-error> 
+                        <mat-error
+                            *ngIf="this.loginForm.controls['password'].touched && this.loginForm.controls['password'].status === 'INVALID'">
+                            You have to put the password</mat-error>
                     </mat-form-field>
-                    </div>
-                
-              
-
+                </div>
                 <div class="d-flex justify-content-end">
-                    <button [class.disabled]="this.loginForm.controls['username'].status === 'INVALID' || this.loginForm.controls['password'].status === 'INVALID'" mat-raised-button color="primary">Primary</button>
+                    <button
+                        [class.disabled]="this.loginForm.controls['username'].status === 'INVALID' || this.loginForm.controls['password'].status === 'INVALID'"
+                        mat-raised-button color="primary">Login</button>
                 </div>
             </form>
         </div>

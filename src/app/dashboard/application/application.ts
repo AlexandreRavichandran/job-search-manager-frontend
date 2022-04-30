@@ -14,6 +14,7 @@ export interface Application {
     createdAt: Date;
     companyName?: string;
     companyAdress?: string;
+    contactname?: string;
     contactEmail?: string;
     contactPhoneNumber?: string;
     moved: boolean;

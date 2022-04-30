@@ -26,6 +26,7 @@ export class DashboardApplicationCreateComponent implements OnInit {
     createdAt: new Date(),
     companyName: "",
     companyAdress: "",
+    contactname: "",
     contactEmail: "",
     contactPhoneNumber: "",
     moved: false,

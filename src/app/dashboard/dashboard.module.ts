@@ -33,6 +33,7 @@ import { DashboardApplicationDiscussionItemComponent } from './dashboard-applica
 import { DashboardApplicationNoteListComponent } from './dashboard-application-note-list/dashboard-application-note-list.component';
 import { DashboardApplicationNoteItemComponent } from './dashboard-application-note-item/dashboard-application-note-item.component';
 import { ToggleDisplayComponent } from '../shared/toggle-display/toggle-display.component';
+import { DashboardApplicationEditFormComponent } from './dashboard-application-edit-form/dashboard-application-edit-form.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ToggleDisplayComponent } from '../shared/toggle-display/toggle-display.
     DashboardApplicationDiscussionItemComponent,
     DashboardApplicationNoteListComponent,
     DashboardApplicationNoteItemComponent,
-    ToggleDisplayComponent
+    ToggleDisplayComponent,
+    DashboardApplicationEditFormComponent
   ],
   imports: [
     CommonModule,

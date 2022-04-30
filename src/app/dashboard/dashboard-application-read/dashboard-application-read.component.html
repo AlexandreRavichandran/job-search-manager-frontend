@@ -1,14 +1,20 @@
 <jsm-dashboard-header></jsm-dashboard-header>
 <div class="container application">
     <div class="application__header row">
-        <div class="col-10 d-flex justify-content-around">
-            <div>
-                <h1>{{application.title}}</h1>
-                <p>Created at {{application.createdAt}}</p>
+        <div class="col-10">
+            <div class="application__edit__form d-flex justify-content-center" *ngIf="this.editMode">
+                <jsm-dashboard-application-edit-form (cancelEditingEvent)="this.toggleEditMode()" (updatedApplicationEvent)="this.updateApplication($event)" [editedApplication]="application"></jsm-dashboard-application-edit-form>
             </div>
-            <div class="mt-4">
-                <span class="application__edit bi bi-pencil"></span>
+            <div class="d-flex justify-content-around" *ngIf="!this.editMode">
+                <div>
+                    <h1>{{application.title}}</h1>
+                    <p>Created at {{application.createdAt|date:"shortDate"}}</p>
+                </div>
+                <div class="mt-4">
+                    <span (click)="this.toggleEditMode()" class="application__edit bi bi-pencil"></span>
+                </div>
             </div>
+
 
         </div>
         <div class="col-2 d-flex flex-column justify-content-center">

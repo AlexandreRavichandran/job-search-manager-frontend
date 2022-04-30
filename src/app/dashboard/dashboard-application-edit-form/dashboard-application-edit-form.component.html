@@ -1,0 +1,48 @@
+<form [formGroup]="this.applicationEditForm" (ngSubmit)="this.editForm()">
+    <div>
+        <mat-form-field class="title__field" appearance="fill">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" id="title" placeholder="title">
+
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="company__name__field" appearance="fill">
+            <mat-label>Company name</mat-label>
+            <input matInput formControlName="companyName" id="companyName" placeholder="Company name">
+
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="company__adress__field" appearance="fill">
+            <mat-label>Company adress</mat-label>
+            <input matInput formControlName="companyAdress" id="companyAdress" placeholder="Company adress">
+
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="contact__name__field" appearance="fill">
+            <mat-label>Contact name</mat-label>
+            <input matInput formControlName="contactName" id="contactName" placeholder="Contact name">
+
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="contact__email__field" appearance="fill">
+            <mat-label>Contact email</mat-label>
+            <input matInput formControlName="contactEmail" id="contactEmail" placeholder="Contact email">
+
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="contact__phonenumber__field" appearance="fill">
+            <mat-label>Contact phone number</mat-label>
+            <input matInput formControlName="contactPhoneNumber" id="contactPhoneNumber"
+                placeholder="Contact phone number">
+        </mat-form-field>
+    </div>
+    <div class="d-flex justify-content-between ">
+        <a (click)="this.cancelEdition()" mat-raised-button color="warning">Cancel</a>
+        <button mat-raised-button color="primary">Update</button>
+    </div>
+</form>

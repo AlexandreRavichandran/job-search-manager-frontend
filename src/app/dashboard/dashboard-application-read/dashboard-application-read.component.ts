@@ -10,6 +10,7 @@ import { ApplicationService } from '../application/application.service';
 })
 export class DashboardApplicationReadComponent implements OnInit {
   application!: Application;
+  editMode: boolean = false;
   constructor(private router: ActivatedRoute, private applicationService: ApplicationService) { }
 
   ngOnInit(): void {
@@ -28,5 +29,25 @@ export class DashboardApplicationReadComponent implements OnInit {
   toggleArchive(): void {
     this.application.archived = !this.application.archived;
     this.applicationService.edit(this.application).subscribe();
+  }
+
+  toggleEditMode(): void {
+    this.editMode = !this.editMode;
+  }
+
+  updateApplication(event: any): void {
+    const editedApplication = this.application;
+    editedApplication.title = event.title;
+    editedApplication.companyAdress = event.companyAdress;
+    editedApplication.companyName = event.companyName;
+    editedApplication.contactEmail = event.contactEmail;
+    editedApplication.contactname = event.contactName;
+    editedApplication.contactPhoneNumber = event.contactPhoneNumber;
+
+    this.applicationService.edit(editedApplication).subscribe(application => {
+      this.application = application;
+      this.editMode = false;
+    });
+    
   }
 }
