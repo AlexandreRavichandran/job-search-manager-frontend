@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/shared/user/auth.service';
+import { AuthService } from 'src/app/shared/auth/auth.service';
 
 @Component({
   selector: 'jsm-login-form',
@@ -21,10 +21,10 @@ export class LoginFormComponent implements OnInit {
   }
 
   onLogin(): void {
-    // this.authService.login(this.loginForm.value).subscribe(token => {
-      //sessionStorage.setItem("token", token.token);
+    this.authService.login(this.loginForm.value).subscribe(token => {
+      sessionStorage.setItem("token", token.token);
       this.router.navigate(["/dashboard"]);
-    // });
+     });
   }
 
 }

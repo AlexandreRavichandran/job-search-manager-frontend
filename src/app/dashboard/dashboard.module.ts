@@ -2,7 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.component';
 import { DashboardSubHeaderComponent } from './dashboard-sub-header/dashboard-sub-header.component';
 import { DashboardCardSectionComponent } from './dashboard-card-section/dashboard-card-section.component';
@@ -17,14 +17,14 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DashboardApplicationCreateComponent } from './dashboard-application-create/dashboard-application-create.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {MatStepperModule} from '@angular/material/stepper';
+import { MatStepperModule } from '@angular/material/stepper';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { FormTypeConstant } from './dashboard-application-create/form-type-constant';
-import {MatRadioModule, MAT_RADIO_DEFAULT_OPTIONS} from '@angular/material/radio';
+import { MatRadioModule, MAT_RADIO_DEFAULT_OPTIONS } from '@angular/material/radio';
 import { DashboardApplicationItemMessageComponent } from './dashboard-application-item-message/dashboard-application-item-message.component';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
 import { DashboardApplicationReadComponent } from './dashboard-application-read/dashboard-application-read.component';
 import { DashboardApplicationActivityListComponent } from './dashboard-application-activity-list/dashboard-application-activity-list.component';
 import { DashboardApplicationActivityItemComponent } from './dashboard-application-activity-item/dashboard-application-activity-item.component';
@@ -73,7 +73,7 @@ import { DashboardApplicationEditFormComponent } from './dashboard-application-e
     MatRadioModule,
     MatMenuModule,
     MatDividerModule
-    
+
 
   ],
   providers: [
