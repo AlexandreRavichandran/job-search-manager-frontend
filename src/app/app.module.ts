@@ -10,11 +10,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { TokenInterceptor } from './shared/auth/interceptor/token.interceptor';
 import { ErrorInterceptor } from './shared/auth/interceptor/error.interceptor';
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
-    HomeComponent,
+    HomeComponent
   ],
   imports: [
     AppRoutingModule,
@@ -23,6 +26,9 @@ import { ErrorInterceptor } from './shared/auth/interceptor/error.interceptor';
     MatInputModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     {

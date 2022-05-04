@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { ModalComponent } from 'src/app/shared/modal/modal.component';
 import { Application } from '../application/application';
+import { DashboardApplicationCreateComponent } from '../dashboard-application-create/dashboard-application-create.component';
 import { Discussion } from '../discussion/discussion';
 import { DiscussionService } from '../discussion/discussion.service';
 
@@ -40,14 +42,15 @@ export class DashboardApplicationDiscussionItemComponent implements OnInit {
   }
 
   delete(): void {
-    this.discussionService.delete(this.application.id, this.discussion.id).subscribe({
-      next: discussion => {
-        this.deleteDiscussionEvent.emit(discussion.id);
-      },
-      error: error => {
-        console.log(error);
+    //this.modal.open(DashboardApplicationCreateComponent);
+    // this.discussionService.delete(this.application.id, this.discussion.id).subscribe({
+    //   next: discussion => {
+    //     this.deleteDiscussionEvent.emit(discussion.id);
+    //   },
+    //   error: error => {
+    //     console.log(error);
 
-      }
-    });
+    //   }
+    // });
   }
 }

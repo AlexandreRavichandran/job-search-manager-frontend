@@ -34,7 +34,9 @@ import { DashboardApplicationNoteListComponent } from './dashboard-application-n
 import { DashboardApplicationNoteItemComponent } from './dashboard-application-note-item/dashboard-application-note-item.component';
 import { ToggleDisplayComponent } from '../shared/toggle-display/toggle-display.component';
 import { DashboardApplicationEditFormComponent } from './dashboard-application-edit-form/dashboard-application-edit-form.component';
-
+import { NoteEditModalContentComponent } from './dashboard-application-note-item/note-edit-modal-content/note-edit-modal-content.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -57,7 +59,8 @@ import { DashboardApplicationEditFormComponent } from './dashboard-application-e
     DashboardApplicationNoteListComponent,
     DashboardApplicationNoteItemComponent,
     ToggleDisplayComponent,
-    DashboardApplicationEditFormComponent
+    DashboardApplicationEditFormComponent,
+    NoteEditModalContentComponent
   ],
   imports: [
     CommonModule,
@@ -72,7 +75,9 @@ import { DashboardApplicationEditFormComponent } from './dashboard-application-e
     MatButtonModule,
     MatRadioModule,
     MatMenuModule,
-    MatDividerModule
+    MatDividerModule,
+    MatDatepickerModule,
+    MatNativeDateModule
 
 
   ],
@@ -82,7 +87,7 @@ import { DashboardApplicationEditFormComponent } from './dashboard-application-e
     {
       provide: MAT_RADIO_DEFAULT_OPTIONS,
       useValue: { color: 'primary' },
-    }
+    },
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
