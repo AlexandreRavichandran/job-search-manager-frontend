@@ -9,15 +9,18 @@ import { ApplicationService } from '../application/application.service';
   styleUrls: ['./dashboard-application-read.component.scss']
 })
 export class DashboardApplicationReadComponent implements OnInit {
+  loading: boolean = false;
   application!: Application;
   editMode: boolean = false;
   constructor(private router: ActivatedRoute, private applicationService: ApplicationService) { }
 
   ngOnInit(): void {
+    this.loading = true;
     const id: number = Number(this.router.snapshot.paramMap.get("id"));
     this.applicationService.read(id).subscribe({
       next: application => {
         this.application = application;
+        this.loading = false;
       }
     })
   }
@@ -48,6 +51,6 @@ export class DashboardApplicationReadComponent implements OnInit {
       this.application = application;
       this.editMode = false;
     });
-    
+
   }
 }

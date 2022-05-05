@@ -1,5 +1,4 @@
-<div [routerLink]="['applications',application.id]" [class.archived]="application.archived"
-    class="application__item p-3 mb-3 ">
+<div [class.archived]="application.archived" class="application__item p-3 mb-3 ">
     <div class="item__header d-flex justify-content-between">
         <jsm-dashboard-application-item-message *ngIf="application.moved" [date]="application.createdAt"
             [type]="application.status.toLowerCase()"></jsm-dashboard-application-item-message>
@@ -16,7 +15,8 @@
             class="item__options col-6 d-flex justify-content-center align-items-center">
             <span class="bi bi-three-dots"></span>
             <mat-menu #application__menu="matMenu">
-                <button mat-menu-item>See or update the application</button>
+                <button [routerLink]="['applications',application.id]" mat-menu-item>See or update the
+                    application</button>
                 <button mat-menu-item>Move the application</button>
                 <button mat-menu-item>Application accepted</button>
                 <button mat-menu-item>Application refused</button>

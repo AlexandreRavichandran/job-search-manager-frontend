@@ -13,6 +13,7 @@ import { ErrorInterceptor } from './shared/auth/interceptor/error.interceptor';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatButtonModule,
     MatDialogModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {

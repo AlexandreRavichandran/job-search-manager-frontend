@@ -41,16 +41,4 @@ export class DashboardApplicationDiscussionItemComponent implements OnInit {
     return formattedDiscussionType;
   }
 
-  delete(): void {
-    //this.modal.open(DashboardApplicationCreateComponent);
-    // this.discussionService.delete(this.application.id, this.discussion.id).subscribe({
-    //   next: discussion => {
-    //     this.deleteDiscussionEvent.emit(discussion.id);
-    //   },
-    //   error: error => {
-    //     console.log(error);
-
-    //   }
-    // });
-  }
 }

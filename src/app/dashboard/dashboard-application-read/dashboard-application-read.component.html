@@ -1,5 +1,6 @@
 <jsm-dashboard-header></jsm-dashboard-header>
-<div class="container application">
+<jsm-loader *ngIf="this.loading"></jsm-loader>
+<div *ngIf="!this.loading" class="container application">
     <div class="application__header row">
         <div class="col-10">
             <div class="application__edit__form d-flex justify-content-center" *ngIf="this.editMode">

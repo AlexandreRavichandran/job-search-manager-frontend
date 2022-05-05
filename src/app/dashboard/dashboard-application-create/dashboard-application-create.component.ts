@@ -12,6 +12,7 @@ import { FormTypeConstant } from './form-type-constant';
   styleUrls: ['./dashboard-application-create.component.scss']
 })
 export class DashboardApplicationCreateComponent implements OnInit {
+  loading: boolean = false;
   statusOfCreatedApplication: string | null = "";
   applicationImportFailed: boolean = false;
   application: Application = {
@@ -73,6 +74,7 @@ export class DashboardApplicationCreateComponent implements OnInit {
   onFirstStepSubmit(): void {
     this.application.title = this.applicationCreateFirstStepForm.value.title;
     if (this.applicationCreateFirstStepForm.valid && this.selectedForm === this.formtypeConstant.TYPE_AUTO_FILLING) {
+      this.loading = true;
       console.log(`Make import search with ${this.applicationCreateFirstStepForm.value.link}`);
       const applicationLink: ApplicationImportation = {
         link: this.applicationCreateFirstStepForm.value.link
@@ -80,10 +82,12 @@ export class DashboardApplicationCreateComponent implements OnInit {
 
       this.applicationService.generateApplicationDataByLink(applicationLink).subscribe({
         next: application => {
+          this.loading = false;
           this.application = application;
           this.application.status = this.applicationCreateFirstStepForm.value.status.toUpperCase().replace(/ /g, "_");
         },
         error: error => {
+          this.loading = false;
           this.applicationImportFailed = true;
           console.log(error);
         }

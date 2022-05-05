@@ -1,4 +1,5 @@
 <jsm-dashboard-header></jsm-dashboard-header>
+<jsm-loader *ngIf="this.loading"></jsm-loader>
 <div class="container">
     <div class="row d-flex justify-content-center">
         <div class="col-8">
@@ -8,7 +9,7 @@
     <div class="row d-flex justify-content-center">
         <div class="col-8">
             <mat-stepper #stepper [linear]="true">
-                <mat-step [stepControl]="applicationCreateFirstStepForm" label="Import the application">
+                <mat-step (click)="onBackToFirstForm()" [stepControl]="applicationCreateFirstStepForm" label="Import the application">
                     <form class="first__step__form" [formGroup]="applicationCreateFirstStepForm"
                         (ngSubmit)="this.onFirstStepSubmit()">
                         <div class="my-3">

@@ -2,7 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.component';
 import { DashboardSubHeaderComponent } from './dashboard-sub-header/dashboard-sub-header.component';
 import { DashboardCardSectionComponent } from './dashboard-card-section/dashboard-card-section.component';
@@ -36,7 +36,9 @@ import { ToggleDisplayComponent } from '../shared/toggle-display/toggle-display.
 import { DashboardApplicationEditFormComponent } from './dashboard-application-edit-form/dashboard-application-edit-form.component';
 import { NoteEditModalContentComponent } from './dashboard-application-note-item/note-edit-modal-content/note-edit-modal-content.component';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoaderComponent } from '../shared/loader/loader.component';
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -60,7 +62,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     DashboardApplicationNoteItemComponent,
     ToggleDisplayComponent,
     DashboardApplicationEditFormComponent,
-    NoteEditModalContentComponent
+    NoteEditModalContentComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -77,7 +80,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatMenuModule,
     MatDividerModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatProgressSpinnerModule
 
 
   ],
@@ -92,3 +96,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class DashboardModule { }
+
+//TODO Ajouter message d'erreur https://material.angular.io/components/snack-bar/examples
+
+//TODO Ajouter un modal generique et creer tout les formulaires qu'on mettra dans le modal a chaque fois
+//TODO https://material.angular.io/components/dialog/overview

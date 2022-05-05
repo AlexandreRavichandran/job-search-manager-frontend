@@ -10,7 +10,7 @@ import { AbstractDashboardCardSectionComponent } from './abstract-dashboard-card
   styleUrls: ['./dashboard-card-section.component.scss']
 })
 export class DashboardCardSectionComponent extends AbstractDashboardCardSectionComponent implements OnInit {
-
+  loading: boolean = false;
   @Output() protected refreshSectionEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   applicationList: Application[] = [];
@@ -29,9 +29,11 @@ export class DashboardCardSectionComponent extends AbstractDashboardCardSectionC
   }
 
   getApplications(): void {
+    this.loading = true;
     this.applicationService.browseByStatusAndArchived(this.status, false).subscribe(applications => {
       this.applicationList = applications;
       this.numberOfApplications = applications.length;
+      this.loading = false;
     })
   }
 
