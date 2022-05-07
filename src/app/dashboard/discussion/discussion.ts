@@ -1,6 +1,6 @@
 export interface Discussion {
 
-    id: number;
+    id: any;
     date: Date;
     type: string;
     description: string;

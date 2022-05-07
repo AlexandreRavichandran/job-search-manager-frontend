@@ -1,3 +1,6 @@
 <jsm-dashboard-application-note-item *ngFor="let note of noteList" (deleteNoteEvent)="this.deleteFromList($event)"
     [application]="application" [note]="note">
 </jsm-dashboard-application-note-item>
+<div class="mt-3 d-flex justify-content-center">
+    <button mat-raised-button color="primary" (click)="this.create()">Add note</button>
+</div>

@@ -13,7 +13,7 @@ import { ActivityEditModalContentComponent } from './activity-edit-modal-content
     styleUrls: ['./dashboard-application-activity-item.component.scss']
 })
 export class DashboardApplicationActivityItemComponent extends ModalComponent<ActivityEditModalContentComponent> implements OnInit {
-    protected override datas: any;
+
     @Input() application!: Application
     @Input() activity!: Activity;
     @Output() deleteActivityEvent: EventEmitter<number> = new EventEmitter<number>();
@@ -29,6 +29,7 @@ export class DashboardApplicationActivityItemComponent extends ModalComponent<Ac
     }
 
     openEditForm(): void {
+        this.modalTitle = "Edition of activity";
         this.open();
     }
 

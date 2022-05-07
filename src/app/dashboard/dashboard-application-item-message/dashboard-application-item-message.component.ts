@@ -26,7 +26,7 @@ export class DashboardApplicationItemMessageComponent implements OnInit {
       case "applied":
         classToAdd = "applied";
         break;
-      case "relaunch":
+      case "relaunched":
         classToAdd = "relaunched";
         break;
 
@@ -45,7 +45,7 @@ export class DashboardApplicationItemMessageComponent implements OnInit {
       case "applied":
         label = "Applied at ";
         break;
-      case "relaunch":
+      case "relaunched":
         label = "Relaunched at ";
         break;
     }

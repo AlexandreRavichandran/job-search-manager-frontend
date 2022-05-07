@@ -1,18 +1,18 @@
 <div class="container">
-    <h1>Edition of discussion </h1>
+    <h1>{{this.modalTitle}}</h1>
     <div class="row">
         <div class="col-12">
             <form [formGroup]="this.discussionEditForm" (ngSubmit)="this.onSubmit()">
                 <div class="my-3">
                     <label for="applicationStatus">Status of the application :</label>
                     <select formControlName="type" class="ms-3" id="applicationStatus">
-                        <option [selected]="this.discussion.type === 'PHYSICAL_MEETING'" value="PHYSICAL_MEETING">Physical
+                        <option [selected]="this.discussion && this.discussion.type === 'PHYSICAL_MEETING'" value="PHYSICAL_MEETING">Physical
                             meeting</option>
-                        <option [selected]="this.discussion.type === 'MAIL_DISCUSSION'" value="MAIL_DISCUSSION">Mail
+                        <option [selected]="this.discussion && this.discussion.type === 'MAIL_DISCUSSION'" value="MAIL_DISCUSSION">Mail
                             discussion</option>
-                        <option [selected]="this.discussion.type === 'PHONE_MEETING'" value="PHONE_MEETING">Phone meeting
+                        <option [selected]="this.discussion && this.discussion.type === 'PHONE_MEETING'" value="PHONE_MEETING">Phone meeting
                         </option>
-                        <option [selected]="this.discussion.type === 'VISIO_MEETING'" value="VISIO_MEETING">Visio meeting
+                        <option [selected]="this.discussion && this.discussion.type === 'VISIO_MEETING'" value="VISIO_MEETING">Visio meeting
                         </option>
                     </select>
                 </div>
@@ -31,11 +31,11 @@
                     <mat-form-field class="field field__description" appearance="fill">
                         <mat-label>Description</mat-label>
                         <textarea value="this.discussion.description" formControlName="description"
-                            matInput>{{this.discussion.description}}</textarea>
+                            matInput></textarea>
                     </mat-form-field>
                 </div>
                 <div class="d-flex justify-content-end">
-                    <button mat-dialog-close mat-raised-button color="primary">Edit</button>
+                    <button mat-dialog-close mat-raised-button color="primary">Save & close</button>
                 </div>
             </form>
         </div>

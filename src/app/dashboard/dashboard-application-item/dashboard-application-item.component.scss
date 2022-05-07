@@ -2,6 +2,7 @@
     border: 1px solid rgb(212, 212, 212);
     border-radius: 10px;
     cursor: move;
+    position: relative;
 
     .item__header {
         .header__favorite__button {
@@ -11,22 +12,19 @@
         }
     }
 
-    &.archived {
-        position: relative;
-
-        .win__label {
-            position: absolute;
-            top: 30%;
-            left: 30%;
-            font-size: 20px;
-            color: white;
-            background-color: aqua;
-            font-weight: bold;
-            border-radius: 10px;
-            padding: 10px;
-            transform: rotate(-20deg);
-        }
+    .win__label {
+        position: absolute;
+        top: 30%;
+        left: 30%;
+        font-size: 20px;
+        color: white;
+        background-color: aqua;
+        font-weight: bold;
+        border-radius: 10px;
+        padding: 10px;
+        transform: rotate(-20deg);
     }
+
 
     .item__title {
         font-size: 20px;

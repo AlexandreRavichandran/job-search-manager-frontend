@@ -4,3 +4,6 @@
 <jsm-toggle-display *ngIf="this.discussionList.length > 2" (wrapperEvent)="this.toggleWrapper($event)">
 
 </jsm-toggle-display>
+<div class="mt-3 d-flex justify-content-center">
+    <button mat-raised-button color="primary" (click)="this.create()">Add Discussion</button>
+</div>

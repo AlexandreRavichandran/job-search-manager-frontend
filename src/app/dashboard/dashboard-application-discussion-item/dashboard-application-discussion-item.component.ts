@@ -13,7 +13,7 @@ import { DiscussionEditModalContentComponent } from './discussion-edit-modal-con
   styleUrls: ['./dashboard-application-discussion-item.component.scss']
 })
 export class DashboardApplicationDiscussionItemComponent extends ModalComponent<DiscussionEditModalContentComponent> implements OnInit {
-  protected override datas: any;
+
   @Input() application!: Application;
   @Input() discussion!: Discussion;
   @Output() deleteDiscussionEvent: EventEmitter<number> = new EventEmitter<number>();
@@ -55,6 +55,7 @@ export class DashboardApplicationDiscussionItemComponent extends ModalComponent<
   }
 
   openEditForm(): void {
+    this.modalTitle = "Edition of discussion";
     this.open();
   }
 

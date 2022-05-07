@@ -5,7 +5,7 @@
         <span class="header__favorite__button bi bi-star "></span>
     </div>
     <p class="item__title">{{application.title}}</p>
-    <div *ngIf="application.archived">
+    <div *ngIf="application.result === 'SUCCEED'">
         <div class="win__label mt-3">
             <p class="mb-0">Win !</p>
         </div>
@@ -18,8 +18,8 @@
                 <button [routerLink]="['applications',application.id]" mat-menu-item>See or update the
                     application</button>
                 <button mat-menu-item>Move the application</button>
-                <button mat-menu-item>Application accepted</button>
-                <button mat-menu-item>Application refused</button>
+                <button mat-menu-item (click)="this.setApplicationResult('succeed')">Application accepted</button>
+                <button mat-menu-item (click)="this.setApplicationResult('failed')">Application refused</button>
                 <button mat-menu-item>Set this application as archived</button>
             </mat-menu>
         </div>

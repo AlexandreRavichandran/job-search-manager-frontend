@@ -4,6 +4,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 export abstract class ModalComponent<T> {
   protected modalRef!: MatDialogRef<T, any>;
   protected datas: any;
+  protected modalTitle: string = "";
   protected component!: ComponentType<T>;
   protected className!: T;
   constructor(protected modal: MatDialog) {
@@ -15,8 +16,9 @@ export abstract class ModalComponent<T> {
     this.modalRef = this.modal.open(this.getContentClass(), {
       width: "800px",
       data: {
+        title: this.modalTitle,
         ref: this.modalRef,
-        datas: this.datas
+        datas: this.datas,
       },
     });
   }

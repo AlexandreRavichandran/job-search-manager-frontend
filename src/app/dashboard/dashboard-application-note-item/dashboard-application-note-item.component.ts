@@ -13,7 +13,7 @@ import { NoteEditModalContentComponent } from './note-edit-modal-content/note-ed
   styleUrls: ['./dashboard-application-note-item.component.scss']
 })
 export class DashboardApplicationNoteItemComponent extends ModalComponent<NoteEditModalContentComponent> implements OnInit {
-  protected override datas: any;
+
   @Input() note!: Note;
   @Input() application!: Application;
   @Output() deleteNoteEvent: EventEmitter<number> = new EventEmitter<number>();
@@ -22,9 +22,9 @@ export class DashboardApplicationNoteItemComponent extends ModalComponent<NoteEd
   }
 
   ngOnInit(): void {
-    
+
     this.datas = {
-      note : this.note,
+      note: this.note,
       applicationId: this.application.id,
     }
   }
@@ -38,6 +38,7 @@ export class DashboardApplicationNoteItemComponent extends ModalComponent<NoteEd
   }
 
   openEditForm(): void {
+    this.modalTitle = "Edition of note";
     this.open();
   }
 

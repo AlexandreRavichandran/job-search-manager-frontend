@@ -11,6 +11,7 @@ import { ActivityService } from '../../activity/activity.service';
 })
 export class ActivityEditModalContentComponent implements OnInit {
   activity!: Activity;
+  modalTitle: string = "";
   activityEditForm: FormGroup = new FormGroup({
     date: new FormControl("", Validators.required),
     description: new FormControl("")
@@ -23,6 +24,7 @@ export class ActivityEditModalContentComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.modalTitle = this.data.title;
     this.activity = this.data.datas.activity;
     this.setFormInitialValues();
   }
