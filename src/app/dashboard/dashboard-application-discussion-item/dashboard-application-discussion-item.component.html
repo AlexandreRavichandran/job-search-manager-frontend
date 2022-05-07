@@ -8,12 +8,12 @@
         </div>
     </div>
     <div>
-        <p>{{discussion.comment}}</p>
+        <p>{{discussion.description}}</p>
     </div>
     <div class="d-flex flex-column align-items-end justify-content-between">
         <div class="action__icons">
-            <span class="icons bi bi-pencil me-2"></span>
-            <span (click)="this.delete()" class="icons bi bi-trash"></span>
+            <span class="icons bi bi-pencil me-2" (click)="this.openEditForm()"></span>
+            <span class="icons bi bi-trash" (click)="this.delete()"></span>
         </div>
     </div>
 </div>

@@ -39,6 +39,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoaderComponent } from '../shared/loader/loader.component';
+import { DiscussionEditModalContentComponent } from './dashboard-application-discussion-item/discussion-edit-modal-content/discussion-edit-modal-content.component';
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -63,7 +64,8 @@ import { LoaderComponent } from '../shared/loader/loader.component';
     ToggleDisplayComponent,
     DashboardApplicationEditFormComponent,
     NoteEditModalContentComponent,
-    LoaderComponent
+    LoaderComponent,
+    DiscussionEditModalContentComponent
   ],
   imports: [
     CommonModule,
@@ -96,8 +98,3 @@ import { LoaderComponent } from '../shared/loader/loader.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class DashboardModule { }
-
-//TODO Ajouter message d'erreur https://material.angular.io/components/snack-bar/examples
-
-//TODO Ajouter un modal generique et creer tout les formulaires qu'on mettra dans le modal a chaque fois
-//TODO https://material.angular.io/components/dialog/overview

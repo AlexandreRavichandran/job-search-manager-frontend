@@ -12,10 +12,10 @@ import { NoteService } from '../../note/note.service';
 export class NoteEditModalContentComponent implements OnInit {
   note!: Note;
   noteEditForm: FormGroup = new FormGroup({
-    date: new FormControl(new Date(), Validators.required),
+    date: new FormControl("", Validators.required),
     description: new FormControl("")
   });
-  
+
   constructor(
     private dialogRef: MatDialogRef<NoteEditModalContentComponent>,
     @Inject(MAT_DIALOG_DATA) private data: any,
@@ -26,6 +26,7 @@ export class NoteEditModalContentComponent implements OnInit {
   @Output() noteUpdateEvent: EventEmitter<Note> = new EventEmitter<Note>();
   ngOnInit(): void {
     this.note = this.data.datas.note;
+    this.setFormInitialValues();
   }
 
   onSubmit(): void {
@@ -34,7 +35,14 @@ export class NoteEditModalContentComponent implements OnInit {
     this.noteService.edit(this.data.datas.applicationId, this.data.datas.note.id, this.note).subscribe(note => {
       this.dialogRef.close();
     })
+  }
 
+  setFormInitialValues(): void {
+    this.noteEditForm.setValue(
+      {
+        "description": this.note.description,
+        "date": this.note.date
+      });
   }
 
 }
