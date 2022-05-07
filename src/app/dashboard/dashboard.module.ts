@@ -40,6 +40,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoaderComponent } from '../shared/loader/loader.component';
 import { DiscussionEditModalContentComponent } from './dashboard-application-discussion-item/discussion-edit-modal-content/discussion-edit-modal-content.component';
+import { ActivityEditModalContentComponent } from './dashboard-application-activity-item/activity-edit-modal-content/activity-edit-modal-content.component';
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -65,7 +66,8 @@ import { DiscussionEditModalContentComponent } from './dashboard-application-dis
     DashboardApplicationEditFormComponent,
     NoteEditModalContentComponent,
     LoaderComponent,
-    DiscussionEditModalContentComponent
+    DiscussionEditModalContentComponent,
+    ActivityEditModalContentComponent
   ],
   imports: [
     CommonModule,

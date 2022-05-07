@@ -14,8 +14,6 @@ export class DashboardApplicationDiscussionListComponent implements OnInit {
   @Input() application!: Application;
   @Input() discussionList: Discussion[] = [];
 
-  constructor() { }
-
   ngOnInit(): void {
     this.showFew();
   }

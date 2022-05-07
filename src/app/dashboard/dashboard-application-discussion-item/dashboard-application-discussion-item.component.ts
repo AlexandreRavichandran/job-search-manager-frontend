@@ -1,10 +1,8 @@
 import { ComponentType } from '@angular/cdk/portal';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Subscription } from 'rxjs';
 import { ModalComponent } from 'src/app/shared/modal/modal.component';
 import { Application } from '../application/application';
-import { DashboardApplicationCreateComponent } from '../dashboard-application-create/dashboard-application-create.component';
 import { Discussion } from '../discussion/discussion';
 import { DiscussionService } from '../discussion/discussion.service';
 import { DiscussionEditModalContentComponent } from './discussion-edit-modal-content/discussion-edit-modal-content.component';

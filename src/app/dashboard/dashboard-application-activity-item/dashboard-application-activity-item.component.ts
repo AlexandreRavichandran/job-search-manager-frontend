@@ -1,21 +1,35 @@
+import { ComponentType } from '@angular/cdk/portal';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from 'src/app/shared/modal/modal.component';
 import { Activity } from '../activity/activity';
 import { ActivityService } from '../activity/activity.service';
 import { Application } from '../application/application';
+import { ActivityEditModalContentComponent } from './activity-edit-modal-content/activity-edit-modal-content.component';
 
 @Component({
     selector: 'jsm-dashboard-application-activity-item',
     templateUrl: './dashboard-application-activity-item.component.html',
     styleUrls: ['./dashboard-application-activity-item.component.scss']
 })
-export class DashboardApplicationActivityItemComponent implements OnInit {
+export class DashboardApplicationActivityItemComponent extends ModalComponent<ActivityEditModalContentComponent> implements OnInit {
+    protected override datas: any;
     @Input() application!: Application
     @Input() activity!: Activity;
     @Output() deleteActivityEvent: EventEmitter<number> = new EventEmitter<number>();
-    constructor(private activityService: ActivityService) { }
+    constructor(modal: MatDialog, private activityService: ActivityService) {
+        super(modal);
+    }
 
     ngOnInit(): void {
+        this.datas = {
+            activity: this.activity,
+            applicationId: this.application.id,
+        }
+    }
+
+    openEditForm(): void {
+        this.open();
     }
 
     formatResult(): string {
@@ -63,5 +77,9 @@ export class DashboardApplicationActivityItemComponent implements OnInit {
 
             }
         });
+    }
+
+    getContentClass(): ComponentType<ActivityEditModalContentComponent> {
+        return ActivityEditModalContentComponent;
     }
 }

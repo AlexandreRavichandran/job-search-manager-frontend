@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Inject, Output } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Note } from '../../note/note';
@@ -23,7 +23,6 @@ export class NoteEditModalContentComponent implements OnInit {
 
   }
 
-  @Output() noteUpdateEvent: EventEmitter<Note> = new EventEmitter<Note>();
   ngOnInit(): void {
     this.note = this.data.datas.note;
     this.setFormInitialValues();
@@ -32,7 +31,7 @@ export class NoteEditModalContentComponent implements OnInit {
   onSubmit(): void {
     this.note.date = this.noteEditForm.value["date"];
     this.note.description = this.noteEditForm.value["description"];
-    this.noteService.edit(this.data.datas.applicationId, this.data.datas.note.id, this.note).subscribe(note => {
+    this.noteService.edit(this.data.datas.applicationId, this.data.datas.note.id, this.note).subscribe(() => {
       this.dialogRef.close();
     })
   }

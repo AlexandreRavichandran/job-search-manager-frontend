@@ -16,7 +16,7 @@ export class ActivityService extends AbstractService {
   browse(): Observable<Activity[]> {
     return this.http.get<Activity[]>(`${this.apiUrl}/activities`)
   }
-  
+
   getByApplicationId(applicationId: number): Observable<Activity[]> {
     return this.http.get<Activity[]>(`${this.apiUrl}/applications/${applicationId}/activities`);
   }
@@ -24,7 +24,9 @@ export class ActivityService extends AbstractService {
   read(applicationId: number, activityId: number): Observable<Activity> {
     return this.http.get<Activity>(`${this.apiUrl}/applications/${applicationId}/activities/${activityId}`)
   }
-
+  edit(applicationId: number, activityId: number, activity: Activity): Observable<Activity> {
+    return this.http.put<Activity>(`${this.apiUrl}/applications/${applicationId}/activities/${activityId}`, activity);
+  }
   add(applicationId: number, activity: Activity): Observable<Activity> {
     return this.http.post<Activity>(`${this.apiUrl}/applications/${applicationId}/activities`, activity);
   }

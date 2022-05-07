@@ -1,5 +1,4 @@
 import { ComponentType } from '@angular/cdk/portal';
-import { createComponentType } from '@angular/compiler/src/render3/view/compiler';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from 'src/app/shared/modal/modal.component';
