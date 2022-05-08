@@ -14,6 +14,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ApplicationStatusConstant } from './dashboard/application/application-status-constant';
+import { ApplicationResultConstant } from './dashboard/application/application-result-constant';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +35,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatProgressSpinnerModule
   ],
   providers: [
+    ApplicationStatusConstant,
+    ApplicationResultConstant,
     {
       provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor,
       multi: true

@@ -59,8 +59,8 @@ export class DashboardApplicationCreateComponent implements OnInit {
     private applicationService: ApplicationService,
     private router: Router,
     public formtypeConstant: FormTypeConstant) {
-    if (this.router.getCurrentNavigation()?.extras === undefined) {
-      this.router.navigate(["/dashboard"]);
+    if (this.router.getCurrentNavigation()?.extras.state! === undefined) {
+      this.statusOfCreatedApplication = "Going to apply";
     } else {
       this.statusOfCreatedApplication = this.router.getCurrentNavigation()?.extras.state!['status'];
     }
@@ -68,7 +68,6 @@ export class DashboardApplicationCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
   }
 
   onFirstStepSubmit(): void {

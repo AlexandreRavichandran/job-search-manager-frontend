@@ -5,7 +5,7 @@ import { Activity } from '../../activity/activity';
 import { ActivityService } from '../../activity/activity.service';
 
 @Component({
-  selector: 'app-activity-edit-modal-content',
+  selector: 'jsm-activity-edit-modal-content',
   templateUrl: './activity-edit-modal-content.component.html',
   styleUrls: ['./activity-edit-modal-content.component.scss']
 })

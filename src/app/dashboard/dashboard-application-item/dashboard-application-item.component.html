@@ -1,10 +1,13 @@
 <div [class.archived]="application.archived" class="application__item p-3 mb-3 ">
-    <div class="item__header d-flex justify-content-between">
+    <div class="d-flex justify-content-start">
         <jsm-dashboard-application-item-message *ngIf="application.moved" [date]="application.createdAt"
             [type]="application.status.toLowerCase()"></jsm-dashboard-application-item-message>
+    </div>
+    <div class="item__header d-flex justify-content-between">
+        <p class="item__title">{{application.title}}</p>
         <span class="header__favorite__button bi bi-star "></span>
     </div>
-    <p class="item__title">{{application.title}}</p>
+
     <div *ngIf="application.result === 'SUCCEED'">
         <div class="win__label mt-3">
             <p class="mb-0">Win !</p>
@@ -18,13 +21,13 @@
                 <button [routerLink]="['applications',application.id]" mat-menu-item>See or update the
                     application</button>
                 <button mat-menu-item>Move the application</button>
-                <button mat-menu-item (click)="this.setApplicationResult('succeed')">Application accepted</button>
-                <button mat-menu-item (click)="this.setApplicationResult('failed')">Application refused</button>
-                <button mat-menu-item>Set this application as archived</button>
+                <button mat-menu-item (click)="this.setAsSucceed()">Application accepted</button>
+                <button mat-menu-item (click)="this.setAsFailed()">Application refused</button>
+                <button mat-menu-item (click)="this.setAsArchived()">Set this application as archived</button>
             </mat-menu>
         </div>
         <div *ngIf="application.status.toLowerCase() === 'going_to_apply'" class="item__apply col-6 ">
-            <p class="text-center apply__label my-2">APPLY</p>
+            <p class="text-center apply__label my-2" (click)="this.setAsApply()">APPLY</p>
         </div>
     </div>
 </div>

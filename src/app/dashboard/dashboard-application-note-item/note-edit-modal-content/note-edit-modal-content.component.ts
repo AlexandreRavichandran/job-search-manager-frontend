@@ -5,7 +5,7 @@ import { Note } from '../../note/note';
 import { NoteService } from '../../note/note.service';
 
 @Component({
-  selector: 'app-note-edit-modal-content',
+  selector: 'jsm-note-edit-modal-content',
   templateUrl: './note-edit-modal-content.component.html',
   styleUrls: ['./note-edit-modal-content.component.scss']
 })
@@ -25,7 +25,6 @@ export class NoteEditModalContentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.data)
     if (this.data.datas?.note !== undefined) {
       this.setFormInitialValues();
     }

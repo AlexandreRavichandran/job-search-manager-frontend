@@ -9,16 +9,22 @@
     <div class="row d-flex justify-content-center">
         <div class="col-8">
             <mat-stepper #stepper [linear]="true">
-                <mat-step (click)="onBackToFirstForm()" [stepControl]="applicationCreateFirstStepForm" label="Import the application">
+                <mat-step (click)="onBackToFirstForm()" [stepControl]="applicationCreateFirstStepForm"
+                    label="Import the application">
                     <form class="first__step__form" [formGroup]="applicationCreateFirstStepForm"
                         (ngSubmit)="this.onFirstStepSubmit()">
                         <div class="my-3">
                             <label for="applicationStatus">Status of the application :</label>
                             <select formControlName="status" class="ms-3" name="" id="applicationStatus">
-                                <option value="Going to apply">Going to apply</option>
-                                <option value="Applied">Applied</option>
-                                <option value="Relaunched">Relaunched</option>
-                                <option value="Have a meeting">Have a meeting</option>
+                                <option [selected]="this.statusOfCreatedApplication==='Going to apply'"
+                                    value="Going to apply">Going to apply</option>
+                                <option [selected]="this.statusOfCreatedApplication==='Applied' " value="Applied">
+                                    Applied
+                                </option>
+                                <option [selected]="this.statusOfCreatedApplication==='Relaunched' " value="Relaunched">
+                                    Relaunched</option>
+                                <option [selected]="this.statusOfCreatedApplication==='Have a meeting'" value="Have a
+                                    meeting">Have a meeting</option>
                             </select>
                         </div>
                         <div [class.selected]="this.selectedForm === 'auto'" class="filling__type auto__filling"
@@ -54,13 +60,15 @@
                             </mat-form-field>
                         </div>
                         <div class="d-flex justify-content-end">
-                            <button [disabled]="this.applicationCreateFirstStepForm.status==='INVALID'" mat-flat-button color="primary" matStepperNext>Next</button>
+                            <button [disabled]="this.applicationCreateFirstStepForm.status==='INVALID'" mat-flat-button
+                                color="primary" matStepperNext>Next</button>
                         </div>
                     </form>
                 </mat-step>
                 <mat-step [stepControl]="applicationCreateSecondStepForm" label="Add more details to the application">
                     <div *ngIf="this.applicationImportFailed === true" class="p-2 my-3 import__failed__message">
-                        <p class="mb-0 message__content"><span class="bi bi-exclamation-triangle-fill"></span> Import failed. Please complete the form manually.</p>
+                        <p class="mb-0 message__content"><span class="bi bi-exclamation-triangle-fill"></span> Import
+                            failed. Please complete the form manually.</p>
                     </div>
                     <form class="second__step__form" [formGroup]="applicationCreateSecondStepForm"
                         (ngSubmit)="this.onSecondStepSubmit()">
@@ -74,22 +82,23 @@
                         <div>
                             <mat-form-field class="form__field" appearance="fill">
                                 <mat-label>Description</mat-label>
-                                <textarea class="application__description" matInput formControlName="description" [value]="this.application.description" placeholder="A remplir"></textarea>
+                                <textarea class="application__description" matInput formControlName="description"
+                                    [value]="this.application.description" placeholder="A remplir"></textarea>
                             </mat-form-field>
                         </div>
 
                         <div>
                             <mat-form-field class="form__field" appearance="fill">
                                 <mat-label>Company name</mat-label>
-                                <input matInput formControlName="companyName" value="{{this.application.companyName}}" placeholder="A remplir">
+                                <input matInput formControlName="companyName" value="{{this.application.companyName}}"
+                                    placeholder="A remplir">
                             </mat-form-field>
                         </div>
 
                         <div>
                             <mat-form-field class="form__field" appearance="fill">
                                 <mat-label>Company address</mat-label>
-                                <input matInput formControlName="companyAdress"
-                                    placeholder="A remplir">
+                                <input matInput formControlName="companyAdress" placeholder="A remplir">
                             </mat-form-field>
                         </div>
 
@@ -103,21 +112,20 @@
                         <div>
                             <mat-form-field class="form__field" appearance="fill">
                                 <mat-label>Contact email</mat-label>
-                                <input matInput formControlName="contactEmail"
-                                    placeholder="A remplir">
+                                <input matInput formControlName="contactEmail" placeholder="A remplir">
                             </mat-form-field>
                         </div>
 
                         <div>
                             <mat-form-field class="form__field" appearance="fill">
                                 <mat-label>Contact phone number</mat-label>
-                                <input matInput formControlName="contactPhoneNumber"
-                                    placeholder="A remplir">
+                                <input matInput formControlName="contactPhoneNumber" placeholder="A remplir">
                             </mat-form-field>
                         </div>
 
                         <div class="d-flex justify-content-end">
-                            <button mat-flat-button color="primary" (click)="onBackToFirstForm()" matStepperPrevious>Back</button>
+                            <button mat-flat-button color="primary" (click)="onBackToFirstForm()"
+                                matStepperPrevious>Back</button>
                             <button class="ms-3" mat-flat-button color="primary" matStepperNext>Create</button>
                         </div>
                     </form>

@@ -5,7 +5,7 @@ import { Discussion } from '../../discussion/discussion';
 import { DiscussionService } from '../../discussion/discussion.service';
 
 @Component({
-  selector: 'app-discussion-edit-modal-content',
+  selector: 'jsm-discussion-edit-modal-content',
   templateUrl: './discussion-edit-modal-content.component.html',
   styleUrls: ['./discussion-edit-modal-content.component.scss']
 })

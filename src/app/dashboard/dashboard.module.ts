@@ -41,6 +41,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoaderComponent } from '../shared/loader/loader.component';
 import { DiscussionEditModalContentComponent } from './dashboard-application-discussion-item/discussion-edit-modal-content/discussion-edit-modal-content.component';
 import { ActivityEditModalContentComponent } from './dashboard-application-activity-item/activity-edit-modal-content/activity-edit-modal-content.component';
+import { ApplicationArchiveModalContentComponent } from './dashboard-application-item/modal-content/application-archive-modal-content/application-archive-modal-content.component';
+import { ApplicationSucceedModalContentComponent } from './dashboard-application-item/modal-content/application-succeed-modal-content/application-succeed-modal-content.component';
+import { ApplicationFailedModalContentComponent } from './dashboard-application-item/modal-content/application-failed-modal-content/application-failed-modal-content.component';
+import { ApplicationApplyModalContentComponent } from './dashboard-application-item/modal-content/application-apply-modal-content/application-apply-modal-content.component';
+import { ApplicationResultConstant } from './application/application-result-constant';
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -67,7 +72,11 @@ import { ActivityEditModalContentComponent } from './dashboard-application-activ
     NoteEditModalContentComponent,
     LoaderComponent,
     DiscussionEditModalContentComponent,
-    ActivityEditModalContentComponent
+    ActivityEditModalContentComponent,
+    ApplicationArchiveModalContentComponent,
+    ApplicationSucceedModalContentComponent,
+    ApplicationFailedModalContentComponent,
+    ApplicationApplyModalContentComponent,
   ],
   imports: [
     CommonModule,
@@ -91,6 +100,7 @@ import { ActivityEditModalContentComponent } from './dashboard-application-activ
   ],
   providers: [
     ApplicationStatusConstant,
+    ApplicationResultConstant,
     FormTypeConstant,
     {
       provide: MAT_RADIO_DEFAULT_OPTIONS,
