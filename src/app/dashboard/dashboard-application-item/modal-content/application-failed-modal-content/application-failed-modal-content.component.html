@@ -5,5 +5,8 @@
     <p>This action will put this application on "archived applications"</p>
     <p>You can delete it definitely or restore it later.</p>
 
-    <button (click)="this.onConfirm()">Validate</button>
+    <div class="d-flex justify-content-around">
+        <button (click)="this.onConfirm()" mat-raised-button color="primary">Validate</button>
+        <button (click)="this.onCancel()" mat-raised-button color="secondary">Cancel</button>
+    </div>
 </div>

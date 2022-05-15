@@ -59,7 +59,7 @@ export class DashboardApplicationItemComponent extends ModalComponent<Applicatio
     this.open();
   }
 
-  getContentClass(): ComponentType<ApplicationAbstractModalContentComponent> {
+  getModalContentClass(): ComponentType<ApplicationAbstractModalContentComponent> {
     let modalContent: ComponentType<ApplicationAbstractModalContentComponent> = ApplicationAbstractModalContentComponent;
 
     switch (this.context) {

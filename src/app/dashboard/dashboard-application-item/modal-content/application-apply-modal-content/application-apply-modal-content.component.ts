@@ -24,6 +24,9 @@ export class ApplicationApplyModalContentComponent extends ApplicationAbstractMo
   ngOnInit(): void {
     this.application = this.data.datas.application;
   }
+  onCancel(): void {
+    this.dialogRef.close();
+  }
 
   onConfirm(): void {
     this.application.status = this.applicationConstant.STATUS_APPLIED;

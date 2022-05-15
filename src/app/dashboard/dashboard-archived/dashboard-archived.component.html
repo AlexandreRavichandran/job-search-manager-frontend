@@ -1,0 +1,16 @@
+<jsm-dashboard-header></jsm-dashboard-header>
+<div class="row" cdkDropListGroup>
+    <div class="col-3">
+        <jsm-dashboard-card-section-archived (refreshSectionEvent)="this.refreshApplicationNumber()" [name]="applicationConstant.STATUS_GOING_TO_APPLY" [status]="applicationConstant.STATUS_GOING_TO_APPLY"></jsm-dashboard-card-section-archived>
+    </div>
+    <div class="col-3">
+        <jsm-dashboard-card-section-archived (refreshSectionEvent)="this.refreshApplicationNumber()" [name]="applicationConstant.STATUS_APPLIED" [status]="applicationConstant.STATUS_APPLIED"></jsm-dashboard-card-section-archived>
+    </div>
+    <div class="col-3">
+        <jsm-dashboard-card-section-archived (refreshSectionEvent)="this.refreshApplicationNumber()" [name]="applicationConstant.STATUS_RELAUNCH" [status]="applicationConstant.STATUS_RELAUNCH"></jsm-dashboard-card-section-archived>
+    </div>
+    <div class="col-3">
+        <jsm-dashboard-card-section-archived (refreshSectionEvent)="this.refreshApplicationNumber()" [name]="applicationConstant.STATUS_HAVE_A_MEETING" [status]="applicationConstant.STATUS_HAVE_A_MEETING"></jsm-dashboard-card-section-archived>
+    </div>
+</div>
+<jsm-dashboard-footer></jsm-dashboard-footer>

@@ -1,0 +1,58 @@
+.application__section {
+    border: 1px solid rgb(178, 178, 178);
+    border-radius: 5px;
+
+    .cdk-drop-list-dragging .application__item:not(.cdk-drag-placeholder) {
+        transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+    }
+    .section__name{
+        font-size:20px;
+    }
+    .application__add__button {
+        border: 1px dashed rgb(124, 124, 124);
+        padding: 15px;
+        margin: 20px;
+
+        .button__label {
+            color: rgb(124, 124, 124);
+        }
+
+        &:hover {
+            background-color: rgb(220, 220, 220);
+            cursor: pointer;
+        }
+    }
+
+    &.section__going__to__apply {
+        border-top: 3px solid orange;
+    }
+
+    &.section__applied {
+        border-top: 3px solid red;
+    }
+
+    &.section__relaunch {
+        border-top: 3px solid cyan;
+    }
+
+    &.section__have__a__meeting {
+        border-top: 3px solid green;
+    }
+
+    &.cdk-drag-preview {
+        box-sizing: border-box;
+        border-radius: 4px;
+        box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+            0 8px 10px 1px rgba(0, 0, 0, 0.14),
+            0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    }
+
+    &.cdk-drag-placeholder {
+        opacity: 0;
+    }
+
+    &.cdk-drag-animating {
+        transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+    }
+
+}

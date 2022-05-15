@@ -1,3 +1,4 @@
+import { User } from "src/app/shared/user/user";
 import { Activity } from "../activity/activity";
 import { Discussion } from "../discussion/discussion";
 import { Note } from "../note/note";
@@ -21,4 +22,5 @@ export interface Application {
     activities: Activity[];
     discussions: Discussion[];
     notes: Note[];
+    user?: User;
 }

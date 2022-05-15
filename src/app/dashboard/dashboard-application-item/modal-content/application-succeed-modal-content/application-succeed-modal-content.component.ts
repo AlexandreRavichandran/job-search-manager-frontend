@@ -26,6 +26,7 @@ export class ApplicationSucceedModalContentComponent extends ApplicationAbstract
   }
 
   onConfirm(): void {
+    this.application.archived = true;
     this.application.result = this.applicationConstant.RESULT_SUCCEED;
     this.applicationService.edit(this.application).subscribe({
       next: application => {
@@ -34,4 +35,9 @@ export class ApplicationSucceedModalContentComponent extends ApplicationAbstract
       }
     })
   }
+
+  onCancel(): void {
+    this.dialogRef.close();
+  }
 }
+

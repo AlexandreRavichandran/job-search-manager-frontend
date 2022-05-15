@@ -1,0 +1,29 @@
+<div class="archived application__item p-3 mb-3 ">
+    <div class="d-flex justify-content-start">
+        <jsm-dashboard-application-item-message *ngIf="application.moved" [date]="application.createdAt"
+            [type]="application.status.toLowerCase()"></jsm-dashboard-application-item-message>
+    </div>
+    <div class="item__header d-flex justify-content-between">
+        <p class="item__title">{{application.title}}</p>
+        <span class="header__favorite__button bi bi-star "></span>
+    </div>
+
+    <div *ngIf="application.result === 'SUCCEED'">
+        <div class="win__label mt-3">
+            <p class="mb-0">Win !</p>
+        </div>
+    </div>
+    <div class="row item__footer d-flex justify-content-center text-center mt-5">
+        <div [matMenuTriggerFor]="application__menu"
+            class="item__options col-6 d-flex justify-content-center align-items-center">
+            <span class="bi bi-three-dots"></span>
+            <mat-menu #application__menu="matMenu">
+                <button [routerLink]="['applications',application.id]" mat-menu-item>See or update the
+                    application</button>
+                <button mat-menu-item (click)="this.move()">Move the application</button>
+                <button mat-menu-item (click)="this.restore()">Restore the application</button>
+                <button mat-menu-item (click)="this.delete()">Delete the application</button>
+            </mat-menu>
+        </div>
+    </div>
+</div>

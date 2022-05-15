@@ -34,7 +34,7 @@ export class DashboardApplicationNoteListComponent extends ModalComponent<NoteEd
     this.open();
   }
 
-  getContentClass(): ComponentType<NoteEditModalContentComponent> {
+  getModalContentClass(): ComponentType<NoteEditModalContentComponent> {
     return NoteEditModalContentComponent;
   }
 }

@@ -1,0 +1,10 @@
+<jsm-loader *ngIf="this.loading"></jsm-loader>
+<div cdkDropList [cdkDropListData]="this.applicationList" (cdkDropListDropped)="drop($event)"
+    [ngClass]="this.getClassByStatus()" class="mx-2 mt-4 p-4 application__section">
+    <h5 class="ms-2 ps-3 pt-3 section__name">{{this.name}} ({{this.numberOfApplications}})</h5>
+
+    <div class="application__list">
+        <jsm-dashboard-application-item-archived cdkDrag *ngFor="let application of applicationList" [application]="application">
+        </jsm-dashboard-application-item-archived>
+    </div>
+</div>

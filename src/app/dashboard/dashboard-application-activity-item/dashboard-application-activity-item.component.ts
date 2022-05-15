@@ -80,7 +80,7 @@ export class DashboardApplicationActivityItemComponent extends ModalComponent<Ac
         });
     }
 
-    getContentClass(): ComponentType<ActivityEditModalContentComponent> {
+    getModalContentClass(): ComponentType<ActivityEditModalContentComponent> {
         return ActivityEditModalContentComponent;
     }
 }

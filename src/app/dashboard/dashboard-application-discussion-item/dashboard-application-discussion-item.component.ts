@@ -50,7 +50,7 @@ export class DashboardApplicationDiscussionItemComponent extends ModalComponent<
     return formattedDiscussionType;
   }
 
-  getContentClass(): ComponentType<DiscussionEditModalContentComponent> {
+  getModalContentClass(): ComponentType<DiscussionEditModalContentComponent> {
     return DiscussionEditModalContentComponent;
   }
 

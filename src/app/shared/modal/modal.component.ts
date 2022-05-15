@@ -10,10 +10,10 @@ export abstract class ModalComponent<T> {
   constructor(protected modal: MatDialog) {
   }
 
-  abstract getContentClass(): ComponentType<T>;
+  abstract getModalContentClass(): ComponentType<T>;
 
   open(): void {
-    this.modalRef = this.modal.open(this.getContentClass(), {
+    this.modalRef = this.modal.open(this.getModalContentClass(), {
       width: "800px",
       data: {
         title: this.modalTitle,

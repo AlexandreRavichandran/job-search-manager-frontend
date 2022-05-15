@@ -1,0 +1,55 @@
+.application__item {
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 10px;
+    cursor: move;
+    position: relative;
+
+    .item__header {
+        .header__favorite__button {
+            &:hover {
+                color: red;
+            }
+        }
+    }
+
+    .win__label {
+        position: absolute;
+        top: 30%;
+        left: 30%;
+        font-size: 20px;
+        color: white;
+        background-color: aqua;
+        font-weight: bold;
+        border-radius: 10px;
+        padding: 10px;
+        transform: rotate(-20deg);
+    }
+
+
+    .item__title {
+        font-size: 20px;
+    }
+
+    .item__footer {
+        font-size: 20px;
+        border: 1px solid rgb(207, 207, 207);
+    }
+
+    .item__options {
+        border-right: 1px solid rgb(207, 207, 207);
+
+        &:hover {
+            background-color: rgb(231, 231, 231);
+            cursor: pointer;
+        }
+    }
+
+    .item__apply {
+
+        &:hover {
+            background-color: rgb(231, 231, 231);
+            cursor: pointer;
+        }
+    }
+
+}

@@ -53,7 +53,7 @@ export class DashboardApplicationDiscussionListComponent extends ModalComponent<
     };
     this.open();
   }
-  getContentClass(): ComponentType<DiscussionEditModalContentComponent> {
+  getModalContentClass(): ComponentType<DiscussionEditModalContentComponent> {
     return DiscussionEditModalContentComponent;
   }
 }

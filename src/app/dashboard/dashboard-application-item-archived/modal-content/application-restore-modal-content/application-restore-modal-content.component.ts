@@ -3,18 +3,18 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Application } from 'src/app/dashboard/application/application';
 import { ApplicationResultConstant } from 'src/app/dashboard/application/application-result-constant';
 import { ApplicationService } from 'src/app/dashboard/application/application.service';
-import { ApplicationAbstractModalContentComponent } from '../application-abstract-modal-content/application-abstract-modal-content.component';
+import { ApplicationAbstractModalContentComponent } from 'src/app/dashboard/dashboard-application-item/modal-content/application-abstract-modal-content/application-abstract-modal-content.component';
 
 @Component({
-  selector: 'jsm-application-failed-modal-content',
-  templateUrl: './application-failed-modal-content.component.html',
-  styleUrls: ['./application-failed-modal-content.component.scss']
+  selector: 'app-application-restore-modal-content',
+  templateUrl: './application-restore-modal-content.component.html',
+  styleUrls: ['./application-restore-modal-content.component.scss']
 })
-export class ApplicationFailedModalContentComponent extends ApplicationAbstractModalContentComponent implements OnInit {
+export class ApplicationRestoreModalContentComponent extends ApplicationAbstractModalContentComponent implements OnInit {
 
   application!: Application;
   constructor(
-    private dialogRef: MatDialogRef<ApplicationFailedModalContentComponent>,
+    private dialogRef: MatDialogRef<ApplicationRestoreModalContentComponent>,
     @Inject(MAT_DIALOG_DATA) private data: any,
     private applicationService: ApplicationService,
     private applicationConstant: ApplicationResultConstant) {
@@ -25,13 +25,9 @@ export class ApplicationFailedModalContentComponent extends ApplicationAbstractM
     this.application = this.data.datas.application;
   }
 
-  onCancel():void
-  {
-    this.dialogRef.close();
-  }
   onConfirm(): void {
     this.application.archived = true;
-    this.application.result = this.applicationConstant.RESULT_FAILED;
+    this.application.result = this.applicationConstant.RESULT_SUCCEED;
     this.applicationService.edit(this.application).subscribe({
       next: application => {
         this.application = application;
@@ -40,4 +36,7 @@ export class ApplicationFailedModalContentComponent extends ApplicationAbstractM
     })
   }
 
+  onCancel(): void {
+    this.dialogRef.close();
+  }
 }

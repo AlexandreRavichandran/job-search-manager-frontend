@@ -22,5 +22,8 @@
         laboriosam, perferendis eum consequuntur nisi quas. Fugit, explicabo! Possimus illum esse numquam dicta.
     </p>
 
-    <button (click)="this.onConfirm()"> I have applied</button>
+    <div class="d-flex justify-content-around">
+        <button (click)="this.onConfirm()" mat-raised-button color="primary">I have applied</button>
+        <button (click)="this.onCancel()" mat-raised-button color="secondary">Cancel</button>
+    </div>
 </div>

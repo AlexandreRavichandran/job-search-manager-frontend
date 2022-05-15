@@ -1,1 +1,12 @@
-<p>application-archive-modal-content works!</p>
+<div class="container">
+    <h1>Archive the application</h1>
+    <p>There was no activity for this application since 30 days.</p>
+    <p>You are going to set this application as archived.</p>
+    <p>This application will be moved to "Archived applications". You could delete it definitely or restore it on this
+        section.</p>
+
+    <div class="d-flex justify-content-around">
+        <button (click)="this.onConfirm()" mat-raised-button color="primary">Archive</button>
+        <button (click)="this.onConfirm()" mat-raised-button color="primary">Cancel</button>
+    </div>
+</div>

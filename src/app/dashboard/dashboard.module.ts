@@ -46,6 +46,11 @@ import { ApplicationSucceedModalContentComponent } from './dashboard-application
 import { ApplicationFailedModalContentComponent } from './dashboard-application-item/modal-content/application-failed-modal-content/application-failed-modal-content.component';
 import { ApplicationApplyModalContentComponent } from './dashboard-application-item/modal-content/application-apply-modal-content/application-apply-modal-content.component';
 import { ApplicationResultConstant } from './application/application-result-constant';
+import { DashboardArchivedComponent } from './dashboard-archived/dashboard-archived.component';
+import { DashboardCardSectionArchivedComponent } from './dashboard-card-section-archived/dashboard-card-section-archived.component';
+import { DashboardApplicationItemArchivedComponent } from './dashboard-application-item-archived/dashboard-application-item-archived.component';
+import { ApplicationRestoreModalContentComponent } from './dashboard-application-item-archived/modal-content/application-restore-modal-content/application-restore-modal-content.component';
+import { ApplicationDeleteModalContentComponent } from './dashboard-application-item-archived/modal-content/application-delete-modal-content/application-delete-modal-content.component';
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -77,6 +82,11 @@ import { ApplicationResultConstant } from './application/application-result-cons
     ApplicationSucceedModalContentComponent,
     ApplicationFailedModalContentComponent,
     ApplicationApplyModalContentComponent,
+    DashboardArchivedComponent,
+    DashboardCardSectionArchivedComponent,
+    DashboardApplicationItemArchivedComponent,
+    ApplicationRestoreModalContentComponent,
+    ApplicationDeleteModalContentComponent,
   ],
   imports: [
     CommonModule,
