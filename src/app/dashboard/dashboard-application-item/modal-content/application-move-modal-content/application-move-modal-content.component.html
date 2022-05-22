@@ -1,37 +1,42 @@
 <div class="container">
-    <h1>Move the card</h1>
-    <p>Select the new status of this application</p>
+    <h1 class="text-center">Move the card</h1>
+    <div class="row">
+        <div class="col-12">
+            <p>Select the new status of this application</p>
 
-    <form [formGroup]="this.statusChangeForm" (ngSubmit)="this.onConfirm()">
-        <div>
-            <mat-label>New status</mat-label>
-            <select class="ms-3" formControlName="status">
-                <option value="Going to apply">Going to apply</option>
-                <option value="Applied">Applied</option>
-                <option value="Relaunched">Relaunched</option>
-                <option value="Have a meeting">Have a meeting</option>
-            </select>
+            <form [formGroup]="this.statusChangeForm" (ngSubmit)="this.onConfirm()">
+                <div>
+                    <mat-label>New status</mat-label>
+                    <select class="ms-3" formControlName="status">
+                        <option value="Going to apply">Going to apply</option>
+                        <option value="Applied">Applied</option>
+                        <option value="Relaunched">Relaunched</option>
+                        <option value="Have a meeting">Have a meeting</option>
+                    </select>
+                </div>
+                <div>
+                    <mat-form-field class="field field__date" appearance="fill">
+                        <mat-label>Date</mat-label>
+                        <input formControlName="date" matInput [matDatepicker]="picker">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="picker">
+                            <span class="bi bi-calendar2"></span>
+                        </mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field class="field field__description" appearance="fill">
+                        <mat-label>Description</mat-label>
+                        <textarea formControlName="description" matInput></textarea>
+                    </mat-form-field>
+                </div>
+                <div class="d-flex justify-content-around">
+                    <button mat-raised-button color="primary">Validate</button>
+                    <a (click)="this.onCancel()" mat-raised-button color="secondary">Cancel</a>
+                </div>
+            </form>
         </div>
-        <div>
-            <mat-form-field class="field field__date" appearance="fill">
-                <mat-label>Date</mat-label>
-                <input formControlName="date" matInput [matDatepicker]="picker">
-                <mat-hint>MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matSuffix [for]="picker">
-                    <span class="bi bi-calendar2"></span>
-                </mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-        </div>
-        <div>
-            <mat-form-field class="ms-3 field field__description" appearance="fill">
-                <mat-label>Description</mat-label>
-                <textarea formControlName="description" matInput></textarea>
-            </mat-form-field>
-        </div>
-        <div class="d-flex justify-content-around">
-            <button mat-raised-button color="primary">Validate</button>
-            <a (click)="this.onCancel()" mat-raised-button color="secondary">Cancel</a>
-        </div>
-    </form>
+    </div>
+    
 </div>

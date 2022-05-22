@@ -26,11 +26,8 @@ export class ApplicationDeleteModalContentComponent extends ApplicationAbstractM
   }
 
   onConfirm(): void {
-    this.application.archived = true;
-    this.application.result = this.applicationConstant.RESULT_SUCCEED;
-    this.applicationService.edit(this.application).subscribe({
-      next: application => {
-        this.application = application;
+    this.applicationService.delete(this.application.id).subscribe({
+      next: () => {
         this.dialogRef.close();
       }
     })

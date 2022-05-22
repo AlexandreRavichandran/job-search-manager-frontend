@@ -1,9 +1,9 @@
 <div class="container">
     <h1>Restore the application</h1>
     <p>You are going to delete this application for the job {{this.application.title}} definitely.</p>
-   
+
     <div class="d-flex justify-content-around">
-        <button mat-menu-item >Confirm</button>
-        <button mat-menu-item (click)="this.onCancel()">Cancel</button>
+        <button mat-raised-button color="primary" (click)="this.onConfirm()">Confirm</button>
+        <button mat-raised-button color="secondary" (click)="this.onCancel()">Cancel</button>
     </div>
 </div>

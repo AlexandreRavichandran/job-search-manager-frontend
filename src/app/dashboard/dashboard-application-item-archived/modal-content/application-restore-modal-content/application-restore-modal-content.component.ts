@@ -26,8 +26,8 @@ export class ApplicationRestoreModalContentComponent extends ApplicationAbstract
   }
 
   onConfirm(): void {
-    this.application.archived = true;
-    this.application.result = this.applicationConstant.RESULT_SUCCEED;
+    this.application.archived = false;
+    this.application.result = this.applicationConstant.RESULT_NO_RESPONSE;
     this.applicationService.edit(this.application).subscribe({
       next: application => {
         this.application = application;

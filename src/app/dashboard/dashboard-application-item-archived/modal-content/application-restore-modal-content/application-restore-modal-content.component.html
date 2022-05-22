@@ -4,7 +4,7 @@
     <p>This application will return to the main dashboard.</p>
 
     <div class="d-flex justify-content-around">
-        <button mat-menu-item>Confirm</button>
-        <button mat-menu-item (click)="this.onCancel()">Cancel</button>
+        <button mat-raised-button (click)="this.onConfirm()" color="primary">Confirm</button>
+        <button mat-raised-button color="secondary" (click)="this.onCancel()">Cancel</button>
     </div>
 </div>
