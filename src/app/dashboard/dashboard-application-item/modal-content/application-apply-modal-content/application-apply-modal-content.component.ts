@@ -29,9 +29,10 @@ export class ApplicationApplyModalContentComponent extends ApplicationAbstractMo
   }
 
   onConfirm(): void {
+    this.application.moved = true;
     this.application.status = this.applicationConstant.STATUS_APPLIED;
     this.applicationService.edit(this.application).subscribe({
-      next: application => {
+      next: () => {
         this.dialogRef.close();
       }
     })

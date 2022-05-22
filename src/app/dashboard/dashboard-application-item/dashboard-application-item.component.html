@@ -20,7 +20,7 @@
             <mat-menu #application__menu="matMenu">
                 <button [routerLink]="['applications',application.id]" mat-menu-item>See or update the
                     application</button>
-                <button mat-menu-item>Move the application</button>
+                <button mat-menu-item (click)="this.move()">Move the application</button>
                 <button mat-menu-item (click)="this.setAsSucceed()">Application accepted</button>
                 <button mat-menu-item (click)="this.setAsFailed()">Application refused</button>
                 <button mat-menu-item (click)="this.setAsArchived()">Set this application as archived</button>

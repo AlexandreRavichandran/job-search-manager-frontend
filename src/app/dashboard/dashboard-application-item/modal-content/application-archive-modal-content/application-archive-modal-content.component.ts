@@ -13,6 +13,11 @@ import { ApplicationAbstractModalContentComponent } from '../application-abstrac
 })
 export class ApplicationArchiveModalContentComponent extends ApplicationAbstractModalContentComponent implements OnInit {
   application!: Application;
+  archiveForm: FormGroup = new FormGroup({
+    result: new FormControl("", Validators.required),
+    description: new FormControl("")
+  });
+
   applicationArchiveForm: FormGroup = new FormGroup({
     result: new FormControl("", Validators.required),
     description: new FormControl("")

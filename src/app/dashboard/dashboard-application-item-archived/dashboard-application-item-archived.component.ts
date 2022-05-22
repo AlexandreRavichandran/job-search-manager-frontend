@@ -6,6 +6,7 @@ import { Application } from '../application/application';
 import { ApplicationService } from '../application/application.service';
 import { ApplicationAbstractModalContentComponent } from '../dashboard-application-item/modal-content/application-abstract-modal-content/application-abstract-modal-content.component';
 import { ApplicationArchiveModalContentComponent } from '../dashboard-application-item/modal-content/application-archive-modal-content/application-archive-modal-content.component';
+import { ApplicationMoveModalContentComponent } from '../dashboard-application-item/modal-content/application-move-modal-content/application-move-modal-content.component';
 import { ApplicationDeleteModalContentComponent } from './modal-content/application-delete-modal-content/application-delete-modal-content.component';
 import { ApplicationRestoreModalContentComponent } from './modal-content/application-restore-modal-content/application-restore-modal-content.component';
 
@@ -67,7 +68,7 @@ export class DashboardApplicationItemArchivedComponent extends ModalComponent<Ap
         break;
 
       case "move":
-
+        modalContent = ApplicationMoveModalContentComponent;
         break;
     }
 

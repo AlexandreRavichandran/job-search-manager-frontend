@@ -51,6 +51,7 @@ import { DashboardCardSectionArchivedComponent } from './dashboard-card-section-
 import { DashboardApplicationItemArchivedComponent } from './dashboard-application-item-archived/dashboard-application-item-archived.component';
 import { ApplicationRestoreModalContentComponent } from './dashboard-application-item-archived/modal-content/application-restore-modal-content/application-restore-modal-content.component';
 import { ApplicationDeleteModalContentComponent } from './dashboard-application-item-archived/modal-content/application-delete-modal-content/application-delete-modal-content.component';
+import { ApplicationMoveModalContentComponent } from './dashboard-application-item/modal-content/application-move-modal-content/application-move-modal-content.component';
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -87,6 +88,7 @@ import { ApplicationDeleteModalContentComponent } from './dashboard-application-
     DashboardApplicationItemArchivedComponent,
     ApplicationRestoreModalContentComponent,
     ApplicationDeleteModalContentComponent,
+    ApplicationMoveModalContentComponent,
   ],
   imports: [
     CommonModule,

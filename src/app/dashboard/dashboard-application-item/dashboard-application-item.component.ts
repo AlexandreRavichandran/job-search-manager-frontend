@@ -8,6 +8,7 @@ import { ApplicationAbstractModalContentComponent } from './modal-content/applic
 import { ApplicationApplyModalContentComponent } from './modal-content/application-apply-modal-content/application-apply-modal-content.component';
 import { ApplicationArchiveModalContentComponent } from './modal-content/application-archive-modal-content/application-archive-modal-content.component';
 import { ApplicationFailedModalContentComponent } from './modal-content/application-failed-modal-content/application-failed-modal-content.component';
+import { ApplicationMoveModalContentComponent } from './modal-content/application-move-modal-content/application-move-modal-content.component';
 import { ApplicationSucceedModalContentComponent } from './modal-content/application-succeed-modal-content/application-succeed-modal-content.component';
 
 @Component({
@@ -59,6 +60,10 @@ export class DashboardApplicationItemComponent extends ModalComponent<Applicatio
     this.open();
   }
 
+  move(): void {
+    this.context = "move";
+    this.open();
+  }
   getModalContentClass(): ComponentType<ApplicationAbstractModalContentComponent> {
     let modalContent: ComponentType<ApplicationAbstractModalContentComponent> = ApplicationAbstractModalContentComponent;
 
@@ -77,6 +82,10 @@ export class DashboardApplicationItemComponent extends ModalComponent<Applicatio
 
       case "apply":
         modalContent = ApplicationApplyModalContentComponent;
+        break;
+
+      case "move":
+        modalContent = ApplicationMoveModalContentComponent;
         break;
     }
 
