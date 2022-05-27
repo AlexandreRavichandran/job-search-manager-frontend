@@ -1,0 +1,25 @@
+<div>
+    <div class="row auth__page">
+        <div class="col-2 left__section bg-primary d-flex justify-content-center align-items-center">
+            <img class="left__section__picture" src="https://via.placeholder.com/200x200" alt="">
+        </div>
+        <div class="col-10 right__section d-flex justify-content-center align-items-center">
+            <div *ngIf="this.currentForm=='login'" class="d-flex flex-column align-items-center">
+                <h1>Login</h1>
+                <jsm-login-form></jsm-login-form>
+                <div class="mt-2 text-center">
+                    <p>Not registered yet?</p>
+                    <a (click)="this.switchForm()">Register</a>
+                </div>
+            </div>
+            <div *ngIf="this.currentForm=='register'" class="d-flex flex-column align-items-center">
+                <h1>Register</h1>
+                <jsm-register-form></jsm-register-form>
+                <div class="mt-2 text-center">
+                    <p>I already have an account</p>
+                    <a (click)="this.switchForm()">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

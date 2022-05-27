@@ -6,7 +6,7 @@ import { ApplicationService } from 'src/app/dashboard/application/application.se
 import { ApplicationAbstractModalContentComponent } from 'src/app/dashboard/dashboard-application-item/modal-content/application-abstract-modal-content/application-abstract-modal-content.component';
 
 @Component({
-  selector: 'app-application-restore-modal-content',
+  selector: 'jsm-application-restore-modal-content',
   templateUrl: './application-restore-modal-content.component.html',
   styleUrls: ['./application-restore-modal-content.component.scss']
 })

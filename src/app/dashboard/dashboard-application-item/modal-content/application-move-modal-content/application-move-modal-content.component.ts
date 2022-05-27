@@ -7,7 +7,7 @@ import { ApplicationService } from 'src/app/dashboard/application/application.se
 import { ApplicationAbstractModalContentComponent } from '../application-abstract-modal-content/application-abstract-modal-content.component';
 
 @Component({
-  selector: 'app-application-move-modal-content',
+  selector: 'jsm-application-move-modal-content',
   templateUrl: './application-move-modal-content.component.html',
   styleUrls: ['./application-move-modal-content.component.scss']
 })

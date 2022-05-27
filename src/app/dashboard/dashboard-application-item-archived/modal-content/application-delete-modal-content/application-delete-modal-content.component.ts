@@ -6,7 +6,7 @@ import { ApplicationService } from 'src/app/dashboard/application/application.se
 import { ApplicationAbstractModalContentComponent } from 'src/app/dashboard/dashboard-application-item/modal-content/application-abstract-modal-content/application-abstract-modal-content.component';
 
 @Component({
-  selector: 'app-application-delete-modal-content',
+  selector: 'jsm-application-delete-modal-content',
   templateUrl: './application-delete-modal-content.component.html',
   styleUrls: ['./application-delete-modal-content.component.scss']
 })

@@ -1,32 +1,31 @@
-<div class="container">
-    <div class="row d-flex justify-content-center">
-        <div class="col-6">
-            <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-                <div class="mb-3">
-                    <mat-form-field class="username__field" appearance="fill">
-                        <mat-label>Username</mat-label>
-                        <input matInput formControlName="username" id="username" placeholder="username">
-                        <mat-error
-                            *ngIf="this.loginForm.controls['username'].touched && this.loginForm.controls['username'].status === 'INVALID'">
-                            You have to put the username</mat-error>
-                    </mat-form-field>
-                </div>
-
-                <div class="mb-3">
-                    <mat-form-field class="password__field" appearance="fill">
-                        <mat-label>Password</mat-label>
-                        <input type="password" formControlName="password" id="password" matInput placeholder="password">
-                        <mat-error
-                            *ngIf="this.loginForm.controls['password'].touched && this.loginForm.controls['password'].status === 'INVALID'">
-                            You have to put the password</mat-error>
-                    </mat-form-field>
-                </div>
-                <div class="d-flex justify-content-end">
-                    <button
-                        [class.disabled]="this.loginForm.controls['username'].status === 'INVALID' || this.loginForm.controls['password'].status === 'INVALID'"
-                        mat-raised-button color="primary">Login</button>
-                </div>
-            </form>
+<div class="container-fluid">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <div class="mb-3">
+            <mat-form-field class="username__field" appearance="fill">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="username" id="username" placeholder="username">
+                <mat-error
+                    *ngIf="this.loginForm.controls['username'].touched && this.loginForm.controls['username'].status === 'INVALID'">
+                    You have to put the username</mat-error>
+            </mat-form-field>
         </div>
-    </div>
+
+        <div class="mb-3">
+            <mat-form-field class="password__field" appearance="fill">
+                <mat-label>Password</mat-label>
+                <input type="password" formControlName="password" id="password" matInput placeholder="password">
+                <mat-error
+                    *ngIf="this.loginForm.controls['password'].touched && this.loginForm.controls['password'].status === 'INVALID'">
+                    You have to put the password</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="d-flex justify-content-center">
+            <button
+                [disabled]="this.loginForm.controls['username'].status === 'INVALID' || this.loginForm.controls['password'].status === 'INVALID'"
+                mat-raised-button color="primary">Login</button>
+        </div>
+        <div class="mt-4 d-flex justify-content-center">
+            <a href="#">I have forgotten my password</a>
+        </div>
+    </form>
 </div>

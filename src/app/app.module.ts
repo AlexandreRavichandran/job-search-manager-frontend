@@ -10,17 +10,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { TokenInterceptor } from './shared/auth/interceptor/token.interceptor';
 import { ErrorInterceptor } from './shared/auth/interceptor/error.interceptor';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ApplicationStatusConstant } from './dashboard/application/application-status-constant';
 import { ApplicationResultConstant } from './dashboard/application/application-result-constant';
+import { MatMenuModule } from '@angular/material/menu';
+import { RegisterFormComponent } from './public/register-form/register-form.component';
+import { AuthComponent } from './public/auth/auth.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterFormComponent,
+    AuthComponent
   ],
   imports: [
     AppRoutingModule,
@@ -32,7 +37,8 @@ import { ApplicationResultConstant } from './dashboard/application/application-r
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatMenuModule
   ],
   providers: [
     ApplicationStatusConstant,
