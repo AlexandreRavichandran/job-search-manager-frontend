@@ -6,12 +6,13 @@ import { User } from '../user/user';
 import { Auth } from './auth';
 import { Token } from './token';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService extends AbstractService {
 
-  constructor(private http: HttpClient, private jwtHelper: JwtHelperService) {
+  constructor(private http: HttpClient, private jwtHelper: JwtHelperService, private router: Router) {
     super();
   }
 
@@ -20,6 +21,9 @@ export class AuthService extends AbstractService {
   }
 
   getUsername(): any {
+    if (this.getLoggedUserToken() !== null && !this.isTokenFormatValid()) {
+      this.manageInvalidToken();
+    }
     let datas;
     const token = this.getLoggedUserToken();
     if (token) {
@@ -27,6 +31,7 @@ export class AuthService extends AbstractService {
     }
     return datas.sub;
   }
+
   login(credentials: Auth): Observable<Token> {
     return this.http.post<Token>(`${this.apiUrl}/login`, credentials);
   }
@@ -37,5 +42,23 @@ export class AuthService extends AbstractService {
 
   logout(): void {
     sessionStorage.clear();
+  }
+
+  isTokenFormatValid(): boolean {
+    try {
+      const token = this.getLoggedUserToken();
+      if (token) {
+        this.jwtHelper.decodeToken(token);
+        return true;
+      } else {
+        return false;
+      }
+    } catch (error) {
+      return false;
+    }
+  }
+
+  manageInvalidToken(): void {
+    this.router.navigate(["/auth"]);
   }
 }
