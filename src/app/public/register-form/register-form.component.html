@@ -3,14 +3,16 @@
         <div class="mb-3">
             <mat-form-field class="field first__name__field" appearance="fill">
                 <mat-label>First name</mat-label>
-                <input (change)="this.preFillUsername()" matInput formControlName="firstName" id="firstName" placeholder="First name">
+                <input (change)="this.preFillUsername()" matInput formControlName="firstName" id="firstName"
+                    placeholder="First name">
 
             </mat-form-field>
         </div>
         <div class="mb-3">
             <mat-form-field class="field last__name__field" appearance="fill">
                 <mat-label>Last name</mat-label>
-                <input (change)="this.preFillUsername()" matInput formControlName="lastName" id="lastName" placeholder="Last name">
+                <input (change)="this.preFillUsername()" matInput formControlName="lastName" id="lastName"
+                    placeholder="Last name">
             </mat-form-field>
         </div>
         <div class="mb-3">
@@ -35,7 +37,8 @@
         <div class="mb-3">
             <mat-form-field class="field password__field" appearance="fill">
                 <mat-label>Password</mat-label>
-                <input type="password" formControlName="password" id="password" matInput placeholder="password">
+                <input (change)="this.checkPasswordConf()" type="password" formControlName="password" id="password"
+                    matInput placeholder="password">
                 <mat-error
                     *ngIf="this.registerForm.controls['password'].touched && this.registerForm.controls['password'].status === 'INVALID'">
                     You have to put the password</mat-error>
@@ -44,16 +47,18 @@
         <div class="mb-3">
             <mat-form-field class="field password__conf__field" appearance="fill">
                 <mat-label>Confirm the password</mat-label>
-                <input matInput formControlName="passwordConf" id="passwordConf" placeholder="Confirm password ">
-                <mat-error
-                    *ngIf="this.registerForm.controls['passwordConf'].touched && this.registerForm.controls['passwordConf'].status === 'INVALID'">
+                <input (change)="this.checkPasswordConf()" type="password" matInput formControlName="passwordConf"
+                    id="passwordConf" placeholder="Confirm password ">
+                <mat-error>
                     You have to confirm the password</mat-error>
             </mat-form-field>
+            <div
+                *ngIf="!this.passwordConfIsValid && this.registerForm.controls['password'].dirty && this.registerForm.controls['passwordConf'].dirty">
+                <p class="message__error">The two passwords doesn't match.</p>
+            </div>
         </div>
         <div class="d-flex justify-content-center">
-            <button
-                [disabled]="this.registerForm.controls['username'].status === 'INVALID' || this.registerForm.controls['password'].status === 'INVALID'"
-                mat-raised-button color="primary">Register</button>
+            <button [disabled]="this.registerForm.valid === false" mat-raised-button color="primary">Register</button>
         </div>
     </form>
 </div>

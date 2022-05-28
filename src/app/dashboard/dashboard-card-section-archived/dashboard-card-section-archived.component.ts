@@ -36,7 +36,6 @@ export class DashboardCardSectionArchivedComponent extends AbstractDashboardCard
       this.applicationList = applications;
       this.numberOfApplications = applications.length;
       this.loading = false;
-      console.log(this.applicationList);
     })
   }
 

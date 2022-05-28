@@ -8,14 +8,19 @@ import { AuthService } from 'src/app/shared/auth/auth.service';
   styleUrls: ['./dashboard-header.component.scss']
 })
 export class DashboardHeaderComponent implements OnInit {
-
+  username: string = "";
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getUsername();
   }
 
   logout(): void {
     this.authService.logout();
     this.router.navigate(["/"]);
+  }
+
+  getUsername(): void {
+    this.username = this.authService.getUsername();
   }
 }

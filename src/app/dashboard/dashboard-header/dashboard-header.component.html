@@ -28,7 +28,7 @@
         <div class="header__menu" [matMenuTriggerFor]="header__menu">
             <a class="nav-link"> <span class="h4 text-dark bi bi-list"></span></a>
             <mat-menu class="p-4" #header__menu="matMenu">
-                <p class="menu__name">ALEXANDRE RAVICHANDRAN</p>
+                <p class="menu__name">{{this.username}}</p>
                 <div>
                     <div>
                         <button [routerLink]="['/dashboard/new']" mat-menu-item>Create a new application</button>

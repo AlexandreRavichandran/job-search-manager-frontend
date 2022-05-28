@@ -19,6 +19,7 @@ import { ApplicationResultConstant } from './dashboard/application/application-r
 import { MatMenuModule } from '@angular/material/menu';
 import { RegisterFormComponent } from './public/register-form/register-form.component';
 import { AuthComponent } from './public/auth/auth.component';
+import { JwtHelperService, JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,14 @@ import { AuthComponent } from './public/auth/auth.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatProgressSpinnerModule,
-    MatMenuModule
+    MatMenuModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem("access_token");
+        },
+      }
+    })
   ],
   providers: [
     ApplicationStatusConstant,
@@ -50,7 +58,7 @@ import { AuthComponent } from './public/auth/auth.component';
     {
       provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor,
       multi: true
-    }
+    },
   ],
   bootstrap: [AppComponent]
 })
