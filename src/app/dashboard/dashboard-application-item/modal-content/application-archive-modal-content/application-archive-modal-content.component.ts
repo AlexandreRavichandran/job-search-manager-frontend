@@ -13,10 +13,6 @@ import { ApplicationAbstractModalContentComponent } from '../application-abstrac
 })
 export class ApplicationArchiveModalContentComponent extends ApplicationAbstractModalContentComponent implements OnInit {
   application!: Application;
-  archiveForm: FormGroup = new FormGroup({
-    result: new FormControl("", Validators.required),
-    description: new FormControl("")
-  });
 
   applicationArchiveForm: FormGroup = new FormGroup({
     result: new FormControl("", Validators.required),
@@ -34,9 +30,10 @@ export class ApplicationArchiveModalContentComponent extends ApplicationAbstract
   }
 
   onConfirm(): void {
-    this.application.archived = true;
-    this.application.result = this.getResult();
-    this.applicationService.edit(this.application).subscribe({
+    const editedApplication = Object.assign({},this.application);
+    editedApplication.archived = true;
+    editedApplication.result = this.getResult();
+    this.applicationService.edit(editedApplication).subscribe({
       next: application => {
         this.application = application;
         this.dialogRef.close();
@@ -50,14 +47,14 @@ export class ApplicationArchiveModalContentComponent extends ApplicationAbstract
 
   private getResult(): string {
     let result: string = "";
-    switch (this.applicationArchiveForm.get("description")?.value) {
+    switch (this.applicationArchiveForm.get("result")?.value) {
       case "failed":
         result = this.applicationConstant.RESULT_FAILED;
         break;
       case "succeed":
         result = this.applicationConstant.RESULT_SUCCEED;
         break;
-      case "No response":
+      case "no response":
         result = this.applicationConstant.RESULT_NO_RESPONSE;
         break;
 

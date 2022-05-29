@@ -1,0 +1,33 @@
+.display {
+    animation: swing-in-top-fwd 2s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    display: flex;
+}
+
+.hide {
+    animation: swing-out-top-bck 2s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
+    display: none;
+}
+
+
+.type__success {
+    background-color: rgb(68, 147, 68);
+    box-shadow: 0px 5px 14px -1px rgb(52, 115, 52);
+}
+
+.type__error {
+    background-color: rgb(232, 124, 124);
+    box-shadow: 0px 5px 14px -1px rgb(184, 94, 94);
+}
+
+
+.close__button {
+    cursor: pointer;
+}
+
+.notification__message {
+    border-radius: 5px;
+    padding: 14px;
+    width: 600px;
+    font-weight: 500;
+    color: white;
+}

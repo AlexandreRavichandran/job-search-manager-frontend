@@ -19,14 +19,15 @@ import { ApplicationResultConstant } from './dashboard/application/application-r
 import { MatMenuModule } from '@angular/material/menu';
 import { RegisterFormComponent } from './public/register-form/register-form.component';
 import { AuthComponent } from './public/auth/auth.component';
-import { JwtHelperService, JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
+import {MatCardModule} from '@angular/material/card';
+import { JwtModule} from '@auth0/angular-jwt';
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
     HomeComponent,
     RegisterFormComponent,
-    AuthComponent
+    AuthComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -39,6 +40,7 @@ import { JwtHelperService, JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
     MatDatepickerModule,
     MatNativeDateModule,
     MatProgressSpinnerModule,
+    MatCardModule,
     MatMenuModule,
     JwtModule.forRoot({
       config: {

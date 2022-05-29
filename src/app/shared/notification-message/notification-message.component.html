@@ -1,0 +1,10 @@
+<div class="notification__message container" [className]="this.formatStyleByType()" [className]="this.closed ? 'hide' : 'display'">
+    <mat-card class="type__success display justify-content-between container notification__message">
+        <mat-card-content>
+            <p class="text-center mb-0">{{this.content}}</p>
+        </mat-card-content>
+        <mat-card-actions class="ms-2">
+            <em (click)="this.onClose()" class="close__button bi bi-x-lg"></em>
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -4,9 +4,24 @@
     <p>You are going to set this application as archived.</p>
     <p>This application will be moved to "Archived applications". You could delete it definitely or restore it on this
         section.</p>
-    
-    <div class="d-flex justify-content-around">
-        <button (click)="this.onConfirm()" mat-raised-button color="primary">Archive</button>
-        <button (click)="this.onConfirm()" mat-raised-button color="primary">Cancel</button>
-    </div>
+    <form [formGroup]="this.applicationArchiveForm" (ngSubmit)="this.onConfirm()">
+        <div>
+            <mat-label>New status</mat-label>
+            <select class="ms-3" formControlName="result">
+                <option value="succeed">I have got the job</option>
+                <option value="failed">My application was a failure</option>
+                <option value="no response">I don't have an answer</option>
+            </select>
+        </div>
+        <div>
+            <mat-form-field class="field field__description" appearance="fill">
+                <mat-label>Description</mat-label>
+                <textarea formControlName="description" matInput></textarea>
+            </mat-form-field>
+        </div>
+        <div class="d-flex justify-content-around">
+            <button (click)="this.onConfirm()" mat-raised-button color="primary">Archive</button>
+            <a (click)="this.onCancel()" mat-raised-button color="primary">Cancel</a>
+        </div>
+    </form>
 </div>

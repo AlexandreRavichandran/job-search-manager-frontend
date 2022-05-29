@@ -1,10 +1,15 @@
 <jsm-dashboard-header></jsm-dashboard-header>
+<div class="container">
+    <jsm-notification-message [closed]="false" [type]="'success'" [content]="'totorina'"></jsm-notification-message>
+</div>
 <jsm-loader *ngIf="this.loading"></jsm-loader>
 <div *ngIf="!this.loading" class="container application">
     <div class="application__header row">
         <div class="col-10">
             <div class="application__edit__form d-flex justify-content-center" *ngIf="this.editMode">
-                <jsm-dashboard-application-edit-form (cancelEditingEvent)="this.toggleEditMode()" (updatedApplicationEvent)="this.updateApplication($event)" [editedApplication]="application"></jsm-dashboard-application-edit-form>
+                <jsm-dashboard-application-edit-form (cancelEditingEvent)="this.toggleEditMode()"
+                    (updatedApplicationEvent)="this.updateApplication($event)" [editedApplication]="application">
+                </jsm-dashboard-application-edit-form>
             </div>
             <div class="d-flex justify-content-around" *ngIf="!this.editMode">
                 <div>

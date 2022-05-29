@@ -40,8 +40,9 @@ export class ApplicationMoveModalContentComponent extends ApplicationAbstractMod
   }
 
   onConfirm(): void {
-    this.application.status = this.guessNewStatusByFormValue();
-    this.applicationService.edit(this.application).subscribe({
+    const editedApplication = Object.assign({}, this.application);
+    editedApplication.status = this.guessNewStatusByFormValue();
+    this.applicationService.edit(editedApplication).subscribe({
       next: application => {
         this.application = application;
         this.dialogRef.close();

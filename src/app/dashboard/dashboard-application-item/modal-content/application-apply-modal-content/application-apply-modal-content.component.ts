@@ -1,4 +1,4 @@
-import { Component,Inject, OnInit} from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Application } from 'src/app/dashboard/application/application';
 import { ApplicationStatusConstant } from 'src/app/dashboard/application/application-status-constant';
@@ -29,11 +29,19 @@ export class ApplicationApplyModalContentComponent extends ApplicationAbstractMo
   }
 
   onConfirm(): void {
-    this.application.moved = true;
-    this.application.status = this.applicationConstant.STATUS_APPLIED;
-    this.applicationService.edit(this.application).subscribe({
-      next: () => {
+    const editedApplication = Object.assign({},this.application);
+    editedApplication.moved = true;
+    editedApplication.status = this.applicationConstant.STATUS_APPLIED;
+    console.log(editedApplication);
+    this.applicationService.edit(editedApplication).subscribe({
+      next: () => {  
+        this.application.moved = true;
+        this.application.status = this.applicationConstant.STATUS_APPLIED
         this.dialogRef.close();
+      },
+      error: () => {
+        this.closed = false;
+        this.generateError("error", "Une erreur s'est produite");
       }
     })
   }

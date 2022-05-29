@@ -1,4 +1,5 @@
+import { AbstractNotificationMessageDisplayerComponent } from "src/app/shared/abstract-notification-message-displayer/abstract-notification-message-displayer.component";
 
-export class ApplicationAbstractModalContentComponent {
-
+export class ApplicationAbstractModalContentComponent extends AbstractNotificationMessageDisplayerComponent {
+    
 }

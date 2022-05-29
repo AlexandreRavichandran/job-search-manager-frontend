@@ -52,6 +52,7 @@ import { DashboardApplicationItemArchivedComponent } from './dashboard-applicati
 import { ApplicationRestoreModalContentComponent } from './dashboard-application-item-archived/modal-content/application-restore-modal-content/application-restore-modal-content.component';
 import { ApplicationDeleteModalContentComponent } from './dashboard-application-item-archived/modal-content/application-delete-modal-content/application-delete-modal-content.component';
 import { ApplicationMoveModalContentComponent } from './dashboard-application-item/modal-content/application-move-modal-content/application-move-modal-content.component';
+import { NotificationMessageComponent } from '../shared/notification-message/notification-message.component';
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -89,6 +90,7 @@ import { ApplicationMoveModalContentComponent } from './dashboard-application-it
     ApplicationRestoreModalContentComponent,
     ApplicationDeleteModalContentComponent,
     ApplicationMoveModalContentComponent,
+    NotificationMessageComponent
   ],
   imports: [
     CommonModule,

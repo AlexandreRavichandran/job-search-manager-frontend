@@ -23,13 +23,15 @@ export class AuthService extends AbstractService {
   getUsername(): any {
     if (this.getLoggedUserToken() !== null && !this.isTokenFormatValid()) {
       this.manageInvalidToken();
+    } else {
+      let datas;
+      const token = this.getLoggedUserToken();
+      if (token) {
+        datas = this.jwtHelper.decodeToken(token);
+      }
+      return datas.sub;
     }
-    let datas;
-    const token = this.getLoggedUserToken();
-    if (token) {
-      datas = this.jwtHelper.decodeToken(token);
-    }
-    return datas.sub;
+
   }
 
   login(credentials: Auth): Observable<Token> {
@@ -59,6 +61,7 @@ export class AuthService extends AbstractService {
   }
 
   manageInvalidToken(): void {
+    this.logout();
     this.router.navigate(["/auth"]);
   }
 }
